@@ -777,6 +777,26 @@ code {
   color: var(--text-muted);
 }
 
+.time-alloc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1rem 1.25rem;
+  margin-bottom: 2rem;
+}
+.roadmap-quote {
+  font-size: 13px;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  font-style: italic;
+  border-left: 2px solid var(--accent-border);
+  padding-left: 12px;
+  margin: 10px 0;
+}
+
 .final-res-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
