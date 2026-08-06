@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SDE-2 Interview Prep — DSA · Java · System Design</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+    <div class="nav-links">
+      <a href="#patterns">Patterns</a>
+      <a href="#companies">Companies</a>
+      <a href="#java">Java</a>
+      <a href="#spring">Spring</a>
+      <a href="#plan">Plan</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="container">
+    <div class="hero-eyebrow">
+      <span class="tag tag-green">SDE-2 Ready</span>
+      <span class="tag tag-blue">Amazon · Uber · Apple</span>
+    </div>
+    <h1 class="hero-title">
+      Pattern-first<br>
+      <span class="title-accent">interview prep.</span>
+    </h1>
+    <p class="hero-sub">25 DSA patterns. Company-specific problem sets. Java + Spring Boot depth. An 8-week execution plan built for engineers with CP experience.</p>
+    <div class="hero-actions">
+      <a href="#patterns" class="btn btn-primary">Start with patterns →</a>
+      <a href="#plan" class="btn btn-ghost">See the 8-week plan</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-num">25</span><span class="stat-label">DSA patterns</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">3</span><span class="stat-label">company sheets</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">60+</span><span class="stat-label">interview questions</span></div>
+      <div class="stat-divider"></div>
+      <div class="stat"><span class="stat-num">8 wk</span><span class="stat-label">to interview-ready</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DSA PATTERNS -->
+<section id="patterns" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">DSA</span>
+      <h2>25 core patterns</h2>
+      <p>Master the template, not just the problem. Each pattern unlocks a class of interview questions.</p>
+    </div>
+
+    <div class="pattern-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="foundation">Foundation</button>
+      <button class="filter-btn" data-filter="stack">Stack</button>
+      <button class="filter-btn" data-filter="tree">Trees</button>
+      <button class="filter-btn" data-filter="graph">Graphs</button>
+      <button class="filter-btn" data-filter="dp">DP</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <div class="patterns-grid" id="patterns-grid">
+
+      <!-- FOUNDATION -->
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Two pointers</h3>
+        <p class="pattern-desc">Opposite or same-direction pointers to achieve O(n) on sorted/array problems.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank">Two Sum II (LC 167)</a></li>
+          <li><a href="https://leetcode.com/problems/3sum/" target="_blank">3Sum (LC 15)</a></li>
+          <li><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank">Container With Most Water (LC 11)</a></li>
+          <li><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank">Trapping Rain Water (LC 42) <span class="co-tag apple">Apple</span></a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Sliding window</h3>
+        <p class="pattern-desc">Fixed or variable window over a sequence. Key: what enters and exits the window.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">Longest Substring W/O Repeat (LC 3)</a></li>
+          <li><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank">Minimum Window Substring (LC 76) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">Sliding Window Maximum (LC 239) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/longest-repeating-character-replacement/" target="_blank">Longest Repeating Char Replace (LC 424)</a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Prefix sum / hashing</h3>
+        <p class="pattern-desc">Precompute cumulative values or use HashMap for O(1) lookups.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/two-sum/" target="_blank">Two Sum (LC 1) <span class="co-tag amazon">All</span></a></li>
+          <li><a href="https://leetcode.com/problems/subarray-sum-equals-k/" target="_blank">Subarray Sum Equals K (LC 560)</a></li>
+          <li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank">Product of Array Except Self (LC 238) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/range-sum-query-immutable/" target="_blank">Range Sum Query (LC 303)</a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Binary search</h3>
+        <p class="pattern-desc">Classic sorted-array search + binary search on the answer space.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">Search in Rotated Array (LC 33)</a></li>
+          <li><a href="https://leetcode.com/problems/koko-eating-bananas/" target="_blank">Koko Eating Bananas (LC 875) — answer space</a></li>
+          <li><a href="https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" target="_blank">Capacity to Ship Packages (LC 1011) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank">Median of Two Sorted Arrays (LC 4)</a></li>
+        </ul>
+      </div>
+
+      <!-- STACK -->
+      <div class="pattern-card pattern-card--featured" data-category="stack">
+        <div class="card-header">
+          <span class="pattern-tag stack">Stack</span>
+          <span class="diff diff-hard">Hard-ish</span>
+        </div>
+        <h3>Monotonic stack <span class="featured-badge">⭐ Key pattern</span></h3>
+        <p class="pattern-desc">Push/pop only when the monotonic property breaks. Solves "next greater/smaller" in O(n).</p>
+        <div class="mono-template">
+          <span class="mono-label">Template</span>
+          <code>for each element:
+  while stack not empty AND stack.top() ≥ element:
+    pop → answer[popped_index] = element
+  push element</code>
+        </div>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/daily-temperatures/" target="_blank">Daily Temperatures (LC 739) — NGE template</a></li>
+          <li><a href="https://leetcode.com/problems/next-greater-element-ii/" target="_blank">Next Greater Element II — circular (LC 503)</a></li>
+          <li><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank">Largest Rectangle in Histogram (LC 84) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/maximal-rectangle/" target="_blank">Maximal Rectangle (LC 85)</a></li>
+          <li><a href="https://leetcode.com/problems/sum-of-subarray-minimums/" target="_blank">Sum of Subarray Minimums (LC 907)</a></li>
+          <li><a href="https://leetcode.com/problems/online-stock-span/" target="_blank">Online Stock Span (LC 901)</a></li>
+          <li><a href="https://leetcode.com/problems/remove-k-digits/" target="_blank">Remove K Digits (LC 402)</a></li>
+          <li><a href="https://leetcode.com/problems/car-fleet/" target="_blank">Car Fleet (LC 853)</a></li>
+        </ul>
+        <div class="card-resources">
+          <a href="https://scalemind.dev/dsa/java/monotonic-stack-pattern/" target="_blank" class="resource-link">Java template →</a>
+          <a href="https://hellointerview.com/learn/code/stack/monotonic-stack" target="_blank" class="resource-link">Interactive viz →</a>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="stack">
+        <div class="card-header">
+          <span class="pattern-tag stack">Stack</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Stack — general</h3>
+        <p class="pattern-desc">Bracket matching, expression evaluation, decode/encode patterns.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank">Valid Parentheses (LC 20)</a></li>
+          <li><a href="https://leetcode.com/problems/min-stack/" target="_blank">Min Stack (LC 155)</a></li>
+          <li><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank">Evaluate Reverse Polish Notation (LC 150)</a></li>
+          <li><a href="https://leetcode.com/problems/decode-string/" target="_blank">Decode String (LC 394)</a></li>
+          <li><a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank">Basic Calculator II (LC 227)</a></li>
+        </ul>
+      </div>
+
+      <!-- HEAP -->
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag heap">Heap</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Top-K / heap patterns</h3>
+        <p class="pattern-desc">Min-heap for top-K. Two heaps for median streaming. Priority queue for greedy scheduling.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank">Kth Largest Element (LC 215)</a></li>
+          <li><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank">K Closest Points to Origin (LC 973) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/task-scheduler/" target="_blank">Task Scheduler (LC 621) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/find-median-from-data-stream/" target="_blank">Find Median from Data Stream (LC 295)</a></li>
+          <li><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank">Merge K Sorted Lists (LC 23)</a></li>
+        </ul>
+      </div>
+
+      <!-- TREES -->
+      <div class="pattern-card" data-category="tree">
+        <div class="card-header">
+          <span class="pattern-tag tree">Tree</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>DFS — trees</h3>
+        <p class="pattern-desc">Recursive post-order for path/height problems. Pass down constraints, return up values.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">Binary Tree Max Path Sum (LC 124) <span class="co-tag apple">Apple</span></a></li>
+          <li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">Lowest Common Ancestor (LC 236)</a></li>
+          <li><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" target="_blank">Serialize and Deserialize BT (LC 297)</a></li>
+          <li><a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank">Diameter of Binary Tree (LC 543)</a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="tree">
+        <div class="card-header">
+          <span class="pattern-tag tree">Tree</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>BFS — level order</h3>
+        <p class="pattern-desc">Queue-based level-by-level traversal. Right side view, zigzag, min depth.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">Level Order Traversal (LC 102)</a></li>
+          <li><a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank">Right Side View (LC 199) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" target="_blank">Zigzag Level Order (LC 103)</a></li>
+          <li><a href="https://leetcode.com/problems/n-ary-tree-level-order-traversal/" target="_blank">N-ary Tree Level Order (LC 429)</a></li>
+        </ul>
+      </div>
+
+      <!-- GRAPHS -->
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Graph BFS / DFS</h3>
+        <p class="pattern-desc">Grid traversal, connected components, island counting, multi-source BFS.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/number-of-islands/" target="_blank">Number of Islands (LC 200) <span class="co-tag amazon">All</span></a></li>
+          <li><a href="https://leetcode.com/problems/pacific-atlantic-water-flow/" target="_blank">Pacific Atlantic Water Flow (LC 417)</a></li>
+          <li><a href="https://leetcode.com/problems/word-ladder/" target="_blank">Word Ladder (LC 127) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/rotting-oranges/" target="_blank">Rotting Oranges (LC 994)</a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Topological sort</h3>
+        <p class="pattern-desc">Kahn's BFS algorithm for DAGs. Dependency resolution, course scheduling, alien dictionary.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/course-schedule/" target="_blank">Course Schedule I (LC 207) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank">Course Schedule II (LC 210)</a></li>
+          <li><a href="https://leetcode.com/problems/alien-dictionary/" target="_blank">Alien Dictionary (LC 269) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/minimum-height-trees/" target="_blank">Minimum Height Trees (LC 310)</a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-hard">Med–Hard</span>
+        </div>
+        <h3>Union-Find (DSU)</h3>
+        <p class="pattern-desc">Path compression + union by rank. Dynamic connectivity, accounts merge, redundant edges.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/accounts-merge/" target="_blank">Accounts Merge (LC 721) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/redundant-connection/" target="_blank">Redundant Connection (LC 684)</a></li>
+          <li><a href="https://leetcode.com/problems/number-of-islands-ii/" target="_blank">Number of Islands II (LC 305) <span class="co-tag uber">Uber</span></a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>Shortest path (Dijkstra)</h3>
+        <p class="pattern-desc">Weighted graphs. Min-heap priority queue. Currency exchange, cheapest flights, network delay.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/" target="_blank">Cheapest Flights K Stops (LC 787) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/network-delay-time/" target="_blank">Network Delay Time (LC 743)</a></li>
+          <li><a href="https://leetcode.com/problems/bus-routes/" target="_blank">Bus Routes (LC 815)</a></li>
+        </ul>
+      </div>
+
+      <!-- DP -->
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag dp">DP</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>1D dynamic programming</h3>
+        <p class="pattern-desc">Optimal substructure + overlapping subproblems. Memoization → tabulation.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/house-robber/" target="_blank">House Robber I & II (LC 198, 213) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank">Longest Increasing Subsequence (LC 300)</a></li>
+          <li><a href="https://leetcode.com/problems/coin-change/" target="_blank">Coin Change (LC 322)</a></li>
+          <li><a href="https://leetcode.com/problems/word-break/" target="_blank">Word Break (LC 139) <span class="co-tag amazon">Amazon</span></a></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag dp">DP</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>2D DP / DP on trees</h3>
+        <p class="pattern-desc">Grid DP, string matching, interval DP. DP on tree states (Uber SDE-2 pattern).</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/edit-distance/" target="_blank">Edit Distance (LC 72)</a></li>
+          <li><a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank">Longest Common Subsequence (LC 1143)</a></li>
+          <li><a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank">Regular Expression Matching (LC 10)</a></li>
+          <li>DP on Trees — Optimal BST variant <span class="co-tag uber">Uber SDE-2</span></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag stack">Intervals</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Interval problems</h3>
+        <p class="pattern-desc">Sort by start time. Greedy merge or min-heap for overlapping. Uber's most common pattern.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/merge-intervals/" target="_blank">Merge Intervals (LC 56) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/insert-interval/" target="_blank">Insert Interval (LC 57)</a></li>
+          <li><a href="https://leetcode.com/problems/meeting-rooms-ii/" target="_blank">Meeting Rooms II (LC 253) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/non-overlapping-intervals/" target="_blank">Non-overlapping Intervals (LC 435)</a></li>
+        </ul>
+      </div>
+
+      <!-- DESIGN -->
+      <div class="pattern-card" data-category="design">
+        <div class="card-header">
+          <span class="pattern-tag design">Design</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>System design problems</h3>
+        <p class="pattern-desc">Linked list + HashMap combo (O(1) get/put). Thread-safety with ReadWriteLock for Apple.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache (LC 146) <span class="co-tag apple">Apple</span></a></li>
+          <li><a href="https://leetcode.com/problems/lfu-cache/" target="_blank">LFU Cache (LC 460)</a></li>
+          <li><a href="https://leetcode.com/problems/design-twitter/" target="_blank">Design Twitter (LC 355)</a></li>
+          <li>Thread-safe LRU Cache <span class="co-tag apple">Apple focus</span></li>
+        </ul>
+      </div>
+
+      <div class="pattern-card" data-category="design">
+        <div class="card-header">
+          <span class="pattern-tag design">Design</span>
+          <span class="diff diff-med">Med–Hard</span>
+        </div>
+        <h3>Trie + backtracking</h3>
+        <p class="pattern-desc">Trie for prefix search. Backtracking for exhaustive enumeration with pruning.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank">Implement Trie (LC 208)</a></li>
+          <li><a href="https://leetcode.com/problems/word-search-ii/" target="_blank">Word Search II (LC 212)</a></li>
+          <li><a href="https://leetcode.com/problems/permutations/" target="_blank">Permutations / Subsets (LC 46, 78)</a></li>
+          <li><a href="https://leetcode.com/problems/combination-sum/" target="_blank">Combination Sum (LC 39)</a></li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- COMPANY SHEETS -->
+<section id="companies" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Company Focus</span>
+      <h2>Targeted problem sets</h2>
+      <p>Pattern frequency by company, built from candidate reports and tagged LeetCode data.</p>
+    </div>
+
+    <div class="companies-grid">
+
+      <div class="company-card company-amazon">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Amazon</h3>
+            <p>SDE-2 · L5 · High LP weight</p>
+          </div>
+          <a href="https://leetcode.com/company/amazon/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Graphs / BFS / DSU</span>
+          <span class="pill">DP</span>
+          <span class="pill">Sliding Window</span>
+          <span class="pill">Trees</span>
+          <span class="pill">Arrays</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">Sliding Window Maximum</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/word-ladder/" target="_blank">Word Ladder</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/accounts-merge/" target="_blank">Accounts Merge (DSU)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank">Course Schedule II (Topo)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/word-break/" target="_blank">Word Break</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/house-robber/" target="_blank">House Robber I & II</a><span class="diff diff-med">Med</span></div>
+        </div>
+        <div class="company-note">
+          <strong>OA format:</strong> 2 DSA problems + LP survey (HackerRank). 2025–26 OAs lean on BFS/DSU and DP. Leadership Principle probes in every loop round — prep STAR for Ownership, Bias for Action, Deliver Results.
+        </div>
+      </div>
+
+      <div class="company-card company-uber">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Uber</h3>
+            <p>SDE-2 · L4 · Concurrency in LLD</p>
+          </div>
+          <a href="https://leetcode.com/company/uber/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Graphs / Routing</span>
+          <span class="pill">Heaps</span>
+          <span class="pill">Intervals</span>
+          <span class="pill">DP on Trees</span>
+          <span class="pill">Sliding Window</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank">K Closest Points to Origin</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/" target="_blank">Cheapest Flights K Stops</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/merge-intervals/" target="_blank">Merge Intervals</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/meeting-rooms-ii/" target="_blank">Meeting Rooms II</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/alien-dictionary/" target="_blank">Alien Dictionary (Topo)</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank">Largest Rect. in Histogram</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank">Minimum Window Substring</a><span class="diff diff-hard">Hard</span></div>
+        </div>
+        <div class="company-note">
+          <strong>Machine coding round:</strong> Concurrency + clean OOP. Prepare: Rate Limiter, Trip State Machine, Job Scheduler. Segment Trees appear at hard level for SDE-2.
+        </div>
+      </div>
+
+      <div class="company-card company-apple">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Apple</h3>
+            <p>ICT3/4 · Team-varies · Java + DSA combo</p>
+          </div>
+          <a href="https://leetcode.com/company/apple/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Arrays / Strings</span>
+          <span class="pill">Trees / Linked Lists</span>
+          <span class="pill">Concurrency</span>
+          <span class="pill">Design DS</span>
+          <span class="pill">Java / Spring</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank">Trapping Rain Water</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache (thread-safe)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">Binary Tree Max Path Sum</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/odd-even-linked-list/" target="_blank">Odd Even Linked List</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank">Implement Trie</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row">Custom DS with add/remove<span class="diff diff-med">Med</span></div>
+        </div>
+        <div class="company-note">
+          <strong>Unique to Apple:</strong> Interviewers probe Java + Spring Boot in the same coding round — CAP theorem, Factory pattern, Spring Cloud, circuit breaking, Lambda expressions all confirmed from 2025 reports.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resources-strip">
+      <h3>Company-tagged problem sources</h3>
+      <div class="resource-links-row">
+        <a href="https://github.com/topics/uber-interview" target="_blank" class="resource-pill">GitHub: uber-interview tag →</a>
+        <a href="https://github.com/topics/amazon-interview" target="_blank" class="resource-pill">GitHub: amazon-interview tag →</a>
+        <a href="https://www.dsaprep.dev/blog" target="_blank" class="resource-pill">dsaprep.dev — Uber 2026 analysis →</a>
+        <a href="https://medium.com/@prashant558908/amazon-most-frequent-ds-algo-questions-in-2025" target="_blank" class="resource-pill">Amazon frequent questions 2025 →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- JAVA / OOP -->
+<section id="java" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Java + OOP</span>
+      <h2>Interview question bank</h2>
+      <p>Core Java internals, OOP depth, concurrency, and Java 8+ features tested at SDE-2 level.</p>
+    </div>
+
+    <div class="accordion-grid">
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core Java fundamentals</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>What is the difference between <code>==</code> and <code>.equals()</code>? When must <code>.equals()</code> be overridden alongside <code>hashCode()</code>?</div>
+          <div class="q-item"><span class="q-num">Q2</span>Explain String immutability and the String Pool. What happens with <code>new String("x")</code> vs <code>"x"</code>?</div>
+          <div class="q-item"><span class="q-num">Q3</span>HashMap vs LinkedHashMap vs TreeMap — internal workings, time complexity, ordering guarantees.</div>
+          <div class="q-item"><span class="q-num">Q4</span>What happens when two keys have the same hashCode? How does HashMap handle collisions (treeification threshold at 8 nodes)?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Difference between fail-fast and fail-safe iterators. Give examples of each.</div>
+          <div class="q-item"><span class="q-num">Q6</span>How does ConcurrentHashMap differ from <code>Collections.synchronizedMap()</code>? Segment locking vs CAS.</div>
+          <div class="q-item"><span class="q-num">Q7</span>Autoboxing/unboxing pitfalls. When does <code>Integer.valueOf()</code> cache apply (−128 to 127)?</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>OOP — four pillars + SOLID</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>Compile-time polymorphism (overloading) vs runtime polymorphism (overriding). How does the JVM dispatch virtual methods?</div>
+          <div class="q-item"><span class="q-num">Q2</span>Abstract class vs interface. When would you choose each? How did Java 8 default methods change this? <span class="co-tag apple">Apple asked</span></div>
+          <div class="q-item"><span class="q-num">Q3</span>Comparator vs Comparable — when to use each. Implement both for a custom class. <span class="co-tag apple">Apple 2025</span></div>
+          <div class="q-item"><span class="q-num">Q4</span>How do you create an immutable class in Java? List all 5 requirements (final class, final fields, no setters, deep copy in constructor and getter). <span class="co-tag apple">Apple Round 4</span></div>
+          <div class="q-item"><span class="q-num">Q5</span>SOLID principles — code example for each. Focus depth on Open/Closed and Dependency Inversion.</div>
+          <div class="q-item"><span class="q-num">Q6</span>Factory, Strategy, Observer, Decorator patterns — when would each apply in a real backend service?</div>
+          <div class="q-item"><span class="q-num">Q7</span>Factory design pattern: abstract factory vs factory method distinction. <span class="co-tag apple">Apple asked</span></div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Concurrency & multithreading</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span><code>volatile</code> keyword — what memory visibility problem does it solve? When is it insufficient (check-then-act)?</div>
+          <div class="q-item"><span class="q-num">Q2</span><code>synchronized</code> vs <code>ReentrantLock</code> — differences, fairness policy, when to use each.</div>
+          <div class="q-item"><span class="q-num">Q3</span>What is a deadlock? How to detect it? Write a code example and show how to prevent it.</div>
+          <div class="q-item"><span class="q-num">Q4</span><code>ExecutorService</code> vs <code>ForkJoinPool</code>. When to use <code>CompletableFuture</code> vs <code>Future</code>?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Implement a thread-safe LRU cache in Java using <code>LinkedHashMap</code> + <code>ReadWriteLock</code>. <span class="co-tag apple">Apple classic</span></div>
+          <div class="q-item"><span class="q-num">Q6</span>Implement a concurrent job scheduler. <span class="co-tag uber">Uber machine coding</span></div>
+          <div class="q-item"><span class="q-num">Q7</span>Parallelism vs concurrency — explain with examples. <span class="co-tag apple">Apple CS fundamentals</span></div>
+          <div class="q-item"><span class="q-num">Q8</span>Virtual threads (Project Loom, Java 21) — how do they differ from platform threads? When to use in Spring Boot?</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Java 8+ features</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>Lambda expressions — syntax, functional interfaces, method references. <span class="co-tag apple">Apple asked</span></div>
+          <div class="q-item"><span class="q-num">Q2</span>Stream API — map/filter/reduce/collect. How does lazy evaluation work? When does the terminal operation trigger execution?</div>
+          <div class="q-item"><span class="q-num">Q3</span>Optional — proper usage patterns. Common anti-patterns (<code>Optional.get()</code> without <code>isPresent()</code>).</div>
+          <div class="q-item"><span class="q-num">Q4</span>Default methods in interfaces — how does Java handle diamond problem?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Record classes (Java 16+) and sealed classes (Java 17+) — how do they affect OOP design?</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="java-resources">
+      <h3>Java resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://baeldung.com" target="_blank" class="res-card">
+          <span class="res-type">Free · Deep dives</span>
+          <span class="res-name">Baeldung.com</span>
+          <span class="res-desc">Best Java/Spring articles on the internet. ConcurrentHashMap internals, CompletableFuture, ThreadLocal, virtual threads.</span>
+        </a>
+        <a href="https://tpointtech.com" target="_blank" class="res-card">
+          <span class="res-type">Free · Quick review</span>
+          <span class="res-name">TpointTech (JavaTPoint)</span>
+          <span class="res-desc">300 Core Java interview questions. Good for rapid definition-level review the day before an interview.</span>
+        </a>
+        <div class="res-card">
+          <span class="res-type">Book · Essential</span>
+          <span class="res-name">Effective Java — Bloch</span>
+          <span class="res-desc">Items 10–13 (equals/hashCode), 15–17 (immutability), 68–84 (concurrency). Maps directly to SDE-2 interview depth.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPRING BOOT -->
+<section id="spring" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Spring Boot</span>
+      <h2>Framework interview depth</h2>
+      <p>Apple probes Spring Boot in the same round as DSA. Uber probes microservices resilience.</p>
+    </div>
+
+    <div class="spring-grid">
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Spring Boot core</h3>
+          <span class="topic-badge">All companies</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>How does Spring Boot autoconfiguration work? What does <code>@SpringBootApplication</code> actually do?</div>
+        <div class="q-item"><span class="q-num">Q2</span>Spring MVC vs Spring Boot — what does Boot add? <span class="co-tag apple">Apple asked directly</span></div>
+        <div class="q-item"><span class="q-num">Q3</span>BeanFactory vs ApplicationContext. Bean scopes: singleton, prototype, request, session.</div>
+        <div class="q-item"><span class="q-num">Q4</span>Constructor vs field vs setter injection. Why is constructor injection preferred?</div>
+        <div class="q-item"><span class="q-num">Q5</span><code>@Transactional</code> propagation levels: REQUIRED, REQUIRES_NEW, NESTED. What happens with checked vs unchecked exceptions?</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Microservices resilience</h3>
+          <span class="topic-badge topic-badge-uber">Apple · Uber</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>Spring Cloud components — Eureka, Config Server, Gateway, Feign. Use case for each. <span class="co-tag apple">Apple 2025</span></div>
+        <div class="q-item"><span class="q-num">Q2</span>Rate limiting — token bucket vs leaky bucket. Implement with Resilience4j or Redis + Lua script.</div>
+        <div class="q-item"><span class="q-num">Q3</span>Circuit Breaker — Closed/Open/Half-Open states. How Resilience4j implements it. <span class="co-tag apple">Apple + Uber</span></div>
+        <div class="q-item"><span class="q-num">Q4</span>Bulkhead pattern — thread pool vs semaphore isolation. When does it matter?</div>
+        <div class="q-item"><span class="q-num">Q5</span>Distributed tracing — correlation IDs, Micrometer Tracing, Zipkin/Jaeger.</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Data / persistence</h3>
+          <span class="topic-badge">Backend depth</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>N+1 problem — how to detect and fix (JOIN FETCH vs <code>@EntityGraph</code> vs batch fetching).</div>
+        <div class="q-item"><span class="q-num">Q2</span>Lazy vs eager loading. When does <code>LazyInitializationException</code> occur and how to fix it?</div>
+        <div class="q-item"><span class="q-num">Q3</span>Caching with Spring — <code>@Cacheable</code>, <code>@CacheEvict</code>, <code>@CachePut</code>. Redis as L2 cache integration.</div>
+        <div class="q-item"><span class="q-num">Q4</span>Optimistic vs pessimistic locking with JPA <code>@Version</code>.</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Production / performance</h3>
+          <span class="topic-badge">Senior bar</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>Spring Boot Actuator — exposed endpoints, how to secure <code>/actuator</code> in production.</div>
+        <div class="q-item"><span class="q-num">Q2</span>JVM memory tuning in Docker/K8s — why does JVM over-allocate without container-aware flags? <code>-XX:MaxRAMPercentage</code>.</div>
+        <div class="q-item"><span class="q-num">Q3</span>Virtual threads (Java 21) in Spring Boot 3.2+ — how to enable, compatibility with blocking JDBC drivers.</div>
+        <div class="q-item"><span class="q-num">Q4</span>CAP theorem and how it applies to your service design decisions. <span class="co-tag apple">Apple 2025</span></div>
+      </div>
+
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Spring Boot resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://baeldung.com/spring-boot" target="_blank" class="res-card">
+          <span class="res-type">Free · Best depth</span>
+          <span class="res-name">Baeldung Spring Boot</span>
+          <span class="res-desc">Resilience4j, Redis caching, virtual threads, transaction management. Accurate and production-grade.</span>
+        </a>
+        <a href="https://www.geeksforgeeks.org/springboot/spring-boot-interview-questions-and-answers/" target="_blank" class="res-card">
+          <span class="res-type">Free · Quick review</span>
+          <span class="res-name">GeeksforGeeks 50+</span>
+          <span class="res-desc">50+ Spring Boot interview questions. Good for definition-level breadth before interviews.</span>
+        </a>
+        <a href="https://www.golinuxcloud.com/spring-boot-interview-questions-experienced/" target="_blank" class="res-card">
+          <span class="res-type">Free · Senior level</span>
+          <span class="res-name">GoLinuxCloud — Experienced</span>
+          <span class="res-desc">45+ questions for 5–10 year loops. K8s, OAuth2/JWT, caching, messaging, microservices trade-offs.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 8-WEEK PLAN -->
+<section id="plan" class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Execution</span>
+      <h2>8-week plan</h2>
+      <p>Calibrated for strong CP background. DSA is not the bottleneck — pattern recognition and company depth are.</p>
+    </div>
+
+    <div class="priority-legend">
+      <div class="prio-item"><span class="prio-dot prio-high"></span><span>Must-do before any interview: monotonic stack, graph BFS/DFS, LRU cache, Spring Cloud resilience, thread-safe Java</span></div>
+      <div class="prio-item"><span class="prio-dot prio-med"></span><span>High leverage: DP on trees, topological sort, Dijkstra, CompletableFuture, virtual threads</span></div>
+      <div class="prio-item"><span class="prio-dot prio-low"></span><span>Good to have: segment trees, advanced trie, Spring Boot security, math/geometry</span></div>
+    </div>
+
+    <div class="timeline">
+      <div class="week-card">
+        <div class="week-num-badge">Wk 1</div>
+        <div class="week-content">
+          <h4>Foundation patterns</h4>
+          <p>Two pointers, sliding window, prefix sum. 15 problems. Goal: clean O(n) solutions with no hints. NeetCode 150 groups 1–3.</p>
+          <div class="week-tags"><span>NeetCode 150</span><span>15 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 2</div>
+        <div class="week-content">
+          <h4>Binary search + monotonic stack</h4>
+          <p>Binary search on answer variants. Full monotonic stack pattern set (all 9 problems). ScaleMind Java templates + Hello Interview visualizer.</p>
+          <div class="week-tags"><span>scalemind.dev</span><span>hellointerview.com</span><span>9 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 3</div>
+        <div class="week-content">
+          <h4>Trees — DFS / BFS / BST</h4>
+          <p>20 tree problems. Striver Step 7. Heavy focus on path problems — Apple specifically asks Binary Tree Max Path Sum and LRU thread-safe.</p>
+          <div class="week-tags"><span>Striver A2Z Step 7</span><span>20 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 4</div>
+        <div class="week-content">
+          <h4>Graphs + heap</h4>
+          <p>Uber-flavored problems: K closest, Dijkstra, topological sort, intervals. 20 problems. Solve Alien Dictionary and Cheapest Flights without hints.</p>
+          <div class="week-tags"><span>20 problems</span><span>Uber focus</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 5</div>
+        <div class="week-content">
+          <h4>DP + design problems</h4>
+          <p>1D → 2D DP progression, LRU/LFU cache, thread-safe LRU in Java. Amazon OA focuses on DP + graphs — practice under 45-min timed conditions.</p>
+          <div class="week-tags"><span>Amazon OA style</span><span>Timed</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 6</div>
+        <div class="week-content">
+          <h4>Java + OOP depth</h4>
+          <p>All concurrency questions. Implement thread-safe LRU. Write immutable class. Baeldung deep dives on HashMap internals, ConcurrentHashMap, CompletableFuture.</p>
+          <div class="week-tags"><span>Baeldung</span><span>Effective Java</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 7</div>
+        <div class="week-content">
+          <h4>Spring Boot + resilience</h4>
+          <p>All Spring Boot interview questions. Focus: circuit breaker, rate limiting, Spring Cloud components. Practice explaining Circuit Breaker states out loud.</p>
+          <div class="week-tags"><span>Apple focus</span><span>Verbal practice</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 8</div>
+        <div class="week-content">
+          <h4>Mock interviews + company drill</h4>
+          <p>2 Pramp sessions. Company-tagged LeetCode under timed conditions. Revisit all previous wrong answers. One LeetCode weekly contest.</p>
+          <div class="week-tags"><span>pramp.com</span><span>LC Weekly Contest</span><span>interviewing.io</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources grid -->
+    <div class="final-resources">
+      <h3>Platform resources</h3>
+      <div class="final-res-grid">
+        <a href="https://neetcode.io" target="_blank" class="final-res-card">
+          <span class="frc-name">NeetCode.io</span>
+          <span class="frc-desc">Video for every NeetCode 150 problem. Pattern roadmap. Best for building mental models.</span>
+          <span class="frc-tag">Free + Paid</span>
+        </a>
+        <a href="https://takeuforward.org/strivers-a2z-dsa-course" target="_blank" class="final-res-card">
+          <span class="frc-name">Striver's A2Z</span>
+          <span class="frc-desc">450+ problems. Step 9 = Monotonic Stack. Java-first. Most thorough free DSA resource.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://leetcode.com/problem-list/monotonic-stack/" target="_blank" class="final-res-card">
+          <span class="frc-name">LC Monotonic Stack list</span>
+          <span class="frc-desc">Curated problem list. Sort by frequency. All canonical monotonic stack problems.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://pramp.com" target="_blank" class="final-res-card">
+          <span class="frc-name">Pramp</span>
+          <span class="frc-desc">Peer mock interviews. Forces verbal articulation — the most under-practiced skill.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://interviewing.io" target="_blank" class="final-res-card">
+          <span class="frc-name">interviewing.io</span>
+          <span class="frc-desc">Anonymous mocks with FAANG engineers. Recorded feedback. Best for final-stage prep.</span>
+          <span class="frc-tag">Free tier</span>
+        </a>
+        <a href="https://designgurus.io" target="_blank" class="final-res-card">
+          <span class="frc-name">Grokking the Coding Interview</span>
+          <span class="frc-desc">16 patterns with grouped problems. Explains why a pattern applies, not just how.</span>
+          <span class="frc-tag">Paid</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
