@@ -1159,13 +1159,13 @@ code {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 56px; left: 0; right: 0;
+    top: 100px; left: 0; right: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     padding: 1rem 1.5rem;
     gap: 1rem;
   }
-  .hero { padding: 6rem 0 3rem; }
+  .hero { padding: 7rem 0 3rem; }
   .hero-stats { gap: 1rem; }
   .stat-divider { display: none; }
   .spring-grid { grid-template-columns: 1fr; }
@@ -1173,7 +1173,7 @@ code {
   .companies-grid { grid-template-columns: 1fr; }
   .patterns-grid { grid-template-columns: 1fr; }
   .nav-cards { grid-template-columns: 1fr; }
-  .page-header { padding: 6rem 0 2rem; }
+  .page-header { padding: 7rem 0 2rem; }
   .resource-cards-row { grid-template-columns: 1fr; }
   .resource-links-row { flex-direction: column; align-items: flex-start; }
   .company-card-header { flex-direction: column; gap: 8px; }
@@ -1204,16 +1204,17 @@ code {
   transform: translateY(0);
 }
 
-/* ============ GLOBAL SEARCH (always-visible nav bar) ============ */
-.nav-inner { position: relative; }
+/* ============ GLOBAL SEARCH (always-visible, own row below the main nav row) ============ */
+.nav-search-row {
+  display: flex;
+  justify-content: center;
+  padding: 0 1.5rem 10px;
+}
 
 .nav-search-bar {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  width: 380px;
-  max-width: 38vw;
+  position: relative;
+  width: 420px;
+  max-width: 92vw;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -1221,7 +1222,6 @@ code {
   border: 1px solid var(--border-strong);
   border-radius: 20px;
   padding: 7px 14px;
-  z-index: 2;
   transition: border-color 0.2s var(--ease-fast), box-shadow 0.2s var(--ease-fast), background 0.35s var(--ease);
 }
 .nav-search-bar:focus-within {
@@ -1253,7 +1253,7 @@ code {
 .nav-search-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 10px);
+  top: calc(100% + 8px);
   left: 0;
   right: 0;
   background: var(--surface-2);
@@ -1266,16 +1266,8 @@ code {
 }
 .nav-search-bar.open .nav-search-dropdown { display: block; }
 
-@media (max-width: 900px) {
-  .nav-search-bar { width: 260px; max-width: 34vw; }
-}
-@media (max-width: 640px) {
-  .nav-search-bar { width: 190px; max-width: 44vw; padding: 6px 10px; }
-  .nav-search-key { display: none; }
-}
-@media (max-width: 420px) {
-  .nav-search-bar { width: 130px; }
-  .nav-search-icon { display: none; }
+@media (max-width: 480px) {
+  .nav-search-bar { width: 320px; }
 }
 
 .search-results {

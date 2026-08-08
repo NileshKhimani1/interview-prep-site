@@ -91,21 +91,25 @@ document.head.appendChild(style);
   let activeIndex = -1;
   let currentResults = [];
 
-  const navInner = document.querySelector('.nav-inner');
-  if (!navInner) return;
+  const navEl = document.querySelector('.nav');
+  if (!navEl) return;
 
-  // --- inject the always-visible search bar, centered in the nav ---
-  const bar = document.createElement('div');
-  bar.className = 'nav-search-bar';
-  bar.innerHTML = `
-    <span class="nav-search-icon">🔍</span>
-    <input type="text" class="nav-search-input" placeholder="Search patterns, topics, problems, resources…" autocomplete="off" spellcheck="false" aria-label="Search this site">
-    <span class="nav-search-key">/</span>
-    <div class="nav-search-dropdown"><div class="search-results"></div></div>
+  // --- inject the always-visible search bar as its own row below the
+  //     logo/links row, so it never competes with nav-links for space ---
+  const row = document.createElement('div');
+  row.className = 'nav-search-row';
+  row.innerHTML = `
+    <div class="nav-search-bar">
+      <span class="nav-search-icon">🔍</span>
+      <input type="text" class="nav-search-input" placeholder="Search patterns, topics, problems, resources…" autocomplete="off" spellcheck="false" aria-label="Search this site">
+      <span class="nav-search-key">/</span>
+      <div class="nav-search-dropdown"><div class="search-results"></div></div>
+    </div>
   `;
-  navInner.appendChild(bar);
-  const input = bar.querySelector('.nav-search-input');
-  const resultsEl = bar.querySelector('.search-results');
+  navEl.appendChild(row);
+  const bar = row.querySelector('.nav-search-bar');
+  const input = row.querySelector('.nav-search-input');
+  const resultsEl = row.querySelector('.search-results');
 
   function openDropdown() { bar.classList.add('open'); }
   function closeDropdown() { bar.classList.remove('open'); activeIndex = -1; }
