@@ -143,13 +143,13 @@ code {
   border-bottom: 1px solid var(--border);
 }
 .nav-inner {
-  max-width: 1100px;
+  max-width: 1220px;
   margin: 0 auto;
   padding: 0 1.5rem;
   height: 56px;
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 .nav-logo {
   font-family: var(--font-mono);
@@ -1159,13 +1159,13 @@ code {
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 100px; left: 0; right: 0;
+    top: 56px; left: 0; right: 0;
     background: var(--bg);
     border-bottom: 1px solid var(--border);
     padding: 1rem 1.5rem;
     gap: 1rem;
   }
-  .hero { padding: 7rem 0 3rem; }
+  .hero { padding: 6rem 0 3rem; }
   .hero-stats { gap: 1rem; }
   .stat-divider { display: none; }
   .spring-grid { grid-template-columns: 1fr; }
@@ -1173,7 +1173,7 @@ code {
   .companies-grid { grid-template-columns: 1fr; }
   .patterns-grid { grid-template-columns: 1fr; }
   .nav-cards { grid-template-columns: 1fr; }
-  .page-header { padding: 7rem 0 2rem; }
+  .page-header { padding: 6rem 0 2rem; }
   .resource-cards-row { grid-template-columns: 1fr; }
   .resource-links-row { flex-direction: column; align-items: flex-start; }
   .company-card-header { flex-direction: column; gap: 8px; }
@@ -1204,31 +1204,27 @@ code {
   transform: translateY(0);
 }
 
-/* ============ GLOBAL SEARCH (always-visible, own row below the main nav row) ============ */
-.nav-search-row {
-  display: flex;
-  justify-content: center;
-  padding: 0 1.5rem 10px;
-}
-
+/* ============ GLOBAL SEARCH (inline, between logo and nav links) ============ */
 .nav-search-bar {
   position: relative;
-  width: 420px;
-  max-width: 92vw;
+  flex: 0 1 240px;
+  min-width: 80px;
+  max-width: 240px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
+  height: 32px;
   background: var(--surface-2);
   border: 1px solid var(--border-strong);
-  border-radius: 20px;
-  padding: 7px 14px;
+  border-radius: 16px;
+  padding: 0 10px;
   transition: border-color 0.2s var(--ease-fast), box-shadow 0.2s var(--ease-fast), background 0.35s var(--ease);
 }
 .nav-search-bar:focus-within {
   border-color: var(--accent-border);
   box-shadow: 0 0 0 3px var(--accent-soft);
 }
-.nav-search-icon { font-size: 13px; opacity: 0.6; flex-shrink: 0; }
+.nav-search-icon { font-size: 12px; opacity: 0.6; flex-shrink: 0; }
 .nav-search-input {
   flex: 1;
   min-width: 0;
@@ -1237,25 +1233,26 @@ code {
   outline: none;
   color: var(--text-primary);
   font-family: var(--font-body);
-  font-size: 13.5px;
+  font-size: 12.5px;
 }
 .nav-search-input::placeholder { color: var(--text-muted); }
 .nav-search-key {
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 9.5px;
   color: var(--text-muted);
   border: 1px solid var(--border-strong);
   border-radius: 4px;
-  padding: 1px 5px;
+  padding: 1px 4px;
   flex-shrink: 0;
 }
 
 .nav-search-dropdown {
   display: none;
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 10px);
   left: 0;
-  right: 0;
+  width: 340px;
+  max-width: 80vw;
   background: var(--surface-2);
   border: 1px solid var(--border-strong);
   border-radius: var(--radius-lg);
@@ -1266,8 +1263,17 @@ code {
 }
 .nav-search-bar.open .nav-search-dropdown { display: block; }
 
+@media (max-width: 900px) {
+  .nav-search-bar { flex-basis: 170px; }
+  .nav-search-key { display: none; }
+}
+@media (max-width: 768px) {
+  .nav-search-bar { flex: 0 1 200px; max-width: 200px; }
+  .nav-search-key { display: inline-block; }
+}
 @media (max-width: 480px) {
-  .nav-search-bar { width: 320px; }
+  .nav-search-bar { flex-basis: 120px; }
+  .nav-search-dropdown { left: auto; right: 0; width: min(320px, 90vw); }
 }
 
 .search-results {
