@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8-Week Plan — SDE-2 Interview Prep</title>
+<meta name="description" content="An 8-week execution plan calibrated for engineers with competitive-programming background, with platform resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / 8-Week Plan</span>
+    <span class="section-eyebrow">Execution</span>
+    <h1>8-week plan</h1>
+    <p>This is the compressed track: 8 weeks, calibrated for someone with a competitive-programming background where raw DSA isn't the gap — pattern recognition under interview conditions and company-specific depth are. Every week has a problem-count target and points to the exact resource to use that week, plus a priority legend so you know what's non-negotiable if time runs short.</p>
+    <div class="header-meta">
+      <span>8 weeks</span>
+      <span>~120 problems</span>
+      <span>6 platform resources</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="priority-legend">
+      <div class="prio-item"><span class="prio-dot prio-high"></span><span>Must-do before any interview: monotonic stack, graph BFS/DFS, LRU cache, Spring Cloud resilience, thread-safe Java</span></div>
+      <div class="prio-item"><span class="prio-dot prio-med"></span><span>High leverage: DP on trees, topological sort, Dijkstra, CompletableFuture, virtual threads</span></div>
+      <div class="prio-item"><span class="prio-dot prio-low"></span><span>Good to have: segment trees, advanced trie, Spring Boot security, math/geometry</span></div>
+    </div>
+
+    <div class="timeline">
+      <div class="week-card">
+        <div class="week-num-badge">Wk 1</div>
+        <div class="week-content">
+          <h4>Foundation patterns</h4>
+          <p>Two pointers, sliding window, prefix sum. 15 problems. Goal: clean O(n) solutions with no hints. NeetCode 150 groups 1–3.</p>
+          <div class="week-tags"><span>NeetCode 150</span><span>15 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 2</div>
+        <div class="week-content">
+          <h4>Binary search + monotonic stack</h4>
+          <p>Binary search on answer variants. Full monotonic stack pattern set (all 9 problems). ScaleMind Java templates + Hello Interview visualizer.</p>
+          <div class="week-tags"><span>scalemind.dev</span><span>hellointerview.com</span><span>9 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 3</div>
+        <div class="week-content">
+          <h4>Trees — DFS / BFS / BST</h4>
+          <p>20 tree problems. Striver Step 7. Heavy focus on path problems — Apple specifically asks Binary Tree Max Path Sum and LRU thread-safe.</p>
+          <div class="week-tags"><span>Striver A2Z Step 7</span><span>20 problems</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 4</div>
+        <div class="week-content">
+          <h4>Graphs + heap</h4>
+          <p>Uber-flavored problems: K closest, Dijkstra, topological sort, intervals. 20 problems. Solve Alien Dictionary and Cheapest Flights without hints.</p>
+          <div class="week-tags"><span>20 problems</span><span>Uber focus</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 5</div>
+        <div class="week-content">
+          <h4>DP + design problems</h4>
+          <p>1D → 2D DP progression, LRU/LFU cache, thread-safe LRU in Java. Amazon OA focuses on DP + graphs — practice under 45-min timed conditions.</p>
+          <div class="week-tags"><span>Amazon OA style</span><span>Timed</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 6</div>
+        <div class="week-content">
+          <h4>Java + OOP depth</h4>
+          <p>All concurrency questions. Implement thread-safe LRU. Write immutable class. Baeldung deep dives on HashMap internals, ConcurrentHashMap, CompletableFuture.</p>
+          <div class="week-tags"><span>Baeldung</span><span>Effective Java</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 7</div>
+        <div class="week-content">
+          <h4>Spring Boot + resilience</h4>
+          <p>All Spring Boot interview questions. Focus: circuit breaker, rate limiting, Spring Cloud components. Practice explaining Circuit Breaker states out loud.</p>
+          <div class="week-tags"><span>Apple focus</span><span>Verbal practice</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 8</div>
+        <div class="week-content">
+          <h4>Mock interviews + company drill</h4>
+          <p>2 Pramp sessions. Company-tagged LeetCode under timed conditions. Revisit all previous wrong answers. One LeetCode weekly contest.</p>
+          <div class="week-tags"><span>pramp.com</span><span>LC Weekly Contest</span><span>interviewing.io</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Resources grid -->
+    <div class="final-resources">
+      <h3>Platform resources</h3>
+      <div class="final-res-grid">
+        <a href="https://neetcode.io" target="_blank" class="final-res-card">
+          <span class="frc-name">NeetCode.io</span>
+          <span class="frc-desc">Video for every NeetCode 150 problem. Pattern roadmap. Best for building mental models.</span>
+          <span class="frc-tag">Free + Paid</span>
+        </a>
+        <a href="https://takeuforward.org/strivers-a2z-dsa-course" target="_blank" class="final-res-card">
+          <span class="frc-name">Striver's A2Z</span>
+          <span class="frc-desc">450+ problems. Step 9 = Monotonic Stack. Java-first. Most thorough free DSA resource.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://leetcode.com/problem-list/monotonic-stack/" target="_blank" class="final-res-card">
+          <span class="frc-name">LC Monotonic Stack list</span>
+          <span class="frc-desc">Curated problem list. Sort by frequency. All canonical monotonic stack problems.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://pramp.com" target="_blank" class="final-res-card">
+          <span class="frc-name">Pramp</span>
+          <span class="frc-desc">Peer mock interviews. Forces verbal articulation — the most under-practiced skill.</span>
+          <span class="frc-tag">Free</span>
+        </a>
+        <a href="https://interviewing.io" target="_blank" class="final-res-card">
+          <span class="frc-name">interviewing.io</span>
+          <span class="frc-desc">Anonymous mocks with FAANG engineers. Recorded feedback. Best for final-stage prep.</span>
+          <span class="frc-tag">Free tier</span>
+        </a>
+        <a href="https://designgurus.io" target="_blank" class="final-res-card">
+          <span class="frc-name">Grokking the Coding Interview</span>
+          <span class="frc-desc">16 patterns with grouped problems. Explains why a pattern applies, not just how.</span>
+          <span class="frc-tag">Paid</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

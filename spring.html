@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spring Boot Interview Depth — SDE-2 Interview Prep</title>
+<meta name="description" content="Spring Boot core, microservices resilience, data/persistence, and production topics tested at SDE-2 level, with deep-dive resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html" class="active">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / Spring Boot</span>
+    <span class="section-eyebrow">Spring Boot</span>
+    <h1>Framework interview depth</h1>
+    <p>If your loop includes Spring Boot, it's rarely asked in isolation — Apple folds it into the same 60-minute slot as a DSA problem, and Uber wants resilience patterns (circuit breakers, rate limiting) explained <em>and</em> implemented, not just defined. This page covers core Boot mechanics, microservices resilience, persistence, and production topics, with a dedicated Resilience4j resource set since that's the question both companies keep asking.</p>
+    <div class="header-meta">
+      <span>18 questions</span>
+      <span>4 topic areas</span>
+      <span>Resilience4j deep dive</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="spring-grid">
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Spring Boot core</h3>
+          <span class="topic-badge">All companies</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>How does Spring Boot autoconfiguration work? What does <code>@SpringBootApplication</code> actually do?</div>
+        <div class="q-item"><span class="q-num">Q2</span>Spring MVC vs Spring Boot — what does Boot add? <span class="co-tag apple">Apple asked directly</span></div>
+        <div class="q-item"><span class="q-num">Q3</span>BeanFactory vs ApplicationContext. Bean scopes: singleton, prototype, request, session.</div>
+        <div class="q-item"><span class="q-num">Q4</span>Constructor vs field vs setter injection. Why is constructor injection preferred?</div>
+        <div class="q-item"><span class="q-num">Q5</span><code>@Transactional</code> propagation levels: REQUIRED, REQUIRES_NEW, NESTED. What happens with checked vs unchecked exceptions?</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Microservices resilience</h3>
+          <span class="topic-badge topic-badge-uber">Apple · Uber</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>Spring Cloud components — Eureka, Config Server, Gateway, Feign. Use case for each. <span class="co-tag apple">Apple 2025</span></div>
+        <div class="q-item"><span class="q-num">Q2</span>Rate limiting — token bucket vs leaky bucket. Implement with Resilience4j or Redis + Lua script.</div>
+        <div class="q-item"><span class="q-num">Q3</span>Circuit Breaker — Closed/Open/Half-Open states. How Resilience4j implements it. <span class="co-tag apple">Apple + Uber</span></div>
+        <div class="q-item"><span class="q-num">Q4</span>Bulkhead pattern — thread pool vs semaphore isolation. When does it matter?</div>
+        <div class="q-item"><span class="q-num">Q5</span>Distributed tracing — correlation IDs, Micrometer Tracing, Zipkin/Jaeger.</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Data / persistence</h3>
+          <span class="topic-badge">Backend depth</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>N+1 problem — how to detect and fix (JOIN FETCH vs <code>@EntityGraph</code> vs batch fetching).</div>
+        <div class="q-item"><span class="q-num">Q2</span>Lazy vs eager loading. When does <code>LazyInitializationException</code> occur and how to fix it?</div>
+        <div class="q-item"><span class="q-num">Q3</span>Caching with Spring — <code>@Cacheable</code>, <code>@CacheEvict</code>, <code>@CachePut</code>. Redis as L2 cache integration.</div>
+        <div class="q-item"><span class="q-num">Q4</span>Optimistic vs pessimistic locking with JPA <code>@Version</code>.</div>
+      </div>
+
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Production / performance</h3>
+          <span class="topic-badge">Senior bar</span>
+        </div>
+        <div class="q-item"><span class="q-num">Q1</span>Spring Boot Actuator — exposed endpoints, how to secure <code>/actuator</code> in production.</div>
+        <div class="q-item"><span class="q-num">Q2</span>JVM memory tuning in Docker/K8s — why does JVM over-allocate without container-aware flags? <code>-XX:MaxRAMPercentage</code>.</div>
+        <div class="q-item"><span class="q-num">Q3</span>Virtual threads (Java 21) in Spring Boot 3.2+ — how to enable, compatibility with blocking JDBC drivers.</div>
+        <div class="q-item"><span class="q-num">Q4</span>CAP theorem and how it applies to your service design decisions. <span class="co-tag apple">Apple 2025</span></div>
+      </div>
+
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Spring Boot resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://baeldung.com/spring-boot" target="_blank" class="res-card">
+          <span class="res-type">Free · Best depth</span>
+          <span class="res-name">Baeldung Spring Boot</span>
+          <span class="res-desc">Resilience4j, Redis caching, virtual threads, transaction management. Accurate and production-grade.</span>
+        </a>
+        <a href="https://www.geeksforgeeks.org/springboot/spring-boot-interview-questions-and-answers/" target="_blank" class="res-card">
+          <span class="res-type">Free · Quick review</span>
+          <span class="res-name">GeeksforGeeks 50+</span>
+          <span class="res-desc">50+ Spring Boot interview questions. Good for definition-level breadth before interviews.</span>
+        </a>
+        <a href="https://www.golinuxcloud.com/spring-boot-interview-questions-experienced/" target="_blank" class="res-card">
+          <span class="res-type">Free · Senior level</span>
+          <span class="res-name">GoLinuxCloud — Experienced</span>
+          <span class="res-desc">45+ questions for 5–10 year loops. K8s, OAuth2/JWT, caching, messaging, microservices trade-offs.</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Resilience4j deep dives — the question Apple &amp; Uber both ask</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.baeldung.com/spring-boot-resilience4j" target="_blank" class="res-card">
+          <span class="res-type">Free · Reference</span>
+          <span class="res-name">Baeldung — Guide to Resilience4j</span>
+          <span class="res-desc">The canonical walkthrough of Circuit Breaker, Retry, Rate Limiter, Bulkhead, and Time Limiter modules wired into Spring Boot.</span>
+        </a>
+        <a href="https://www.freecodecamp.org/news/how-to-build-your-own-circuit-breaker-in-spring-boot-and-really-understand-resilience4j/" target="_blank" class="res-card">
+          <span class="res-type">Free · Build-along</span>
+          <span class="res-name">freeCodeCamp — Build Your Own Circuit Breaker</span>
+          <span class="res-desc">Implements Closed/Open/Half-Open state transitions from first principles before showing the Resilience4j shortcut — the best way to actually understand the states you'll be asked to explain out loud.</span>
+        </a>
+        <a href="https://www.geeksforgeeks.org/advance-java/spring-boot-circuit-breaker-pattern-with-resilience4j/" target="_blank" class="res-card">
+          <span class="res-type">Free · Reference</span>
+          <span class="res-name">GeeksforGeeks — Circuit Breaker with Resilience4J</span>
+          <span class="res-desc">Config-driven setup (failure-rate threshold, wait duration, sliding window) with the annotations you'd actually write in a machine-coding round.</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

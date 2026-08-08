@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Fundamentals — DBMS · OS · CN — SDE-2 Interview Prep</title>
+<meta name="description" content="Computer fundamentals for senior/staff interviews: DBMS (indexing, transactions, normalization), Operating Systems (processes, scheduling, deadlocks), and Computer Networks (TCP/IP, HTTP, DNS) with the best free resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html" class="active">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / Computer Fundamentals</span>
+    <span class="section-eyebrow">CS Fundamentals</span>
+    <h1>DBMS · Operating Systems · Networks</h1>
+    <p>These three subjects rarely get their own round at SDE-2, but they're exactly where a "does this person actually understand computers" probe shows up mid-interview — inside an HLD deep dive, a debugging story, or a Microsoft/Apple loop that still runs a dedicated CS fundamentals round. The bar here isn't textbook recall: it's being able to explain <em>why</em> an index speeds up a query, <em>why</em> a deadlock happens, or <em>what</em> actually happens between typing a URL and pixels on screen — in your own words, under follow-up pressure.</p>
+    <div class="header-meta">
+      <span>3 subjects</span>
+      <span>DBMS · OS · CN</span>
+      <span>9 curated resources</span>
+    </div>
+  </div>
+</header>
+
+<!-- DBMS -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">01 — DBMS</span>
+      <h2>Database Management Systems</h2>
+      <p>The subject most likely to show up disguised as an HLD deep dive ("why did you pick this index?") rather than as its own round.</p>
+    </div>
+
+    <div class="accordion-grid">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core DBMS topics</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Normalization:</strong> 1NF → BCNF — and, just as important, when to deliberately denormalize for read performance.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Indexing:</strong> B-tree vs hash index, clustered vs non-clustered, composite index column order, covering indexes — and why an index can make writes slower.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Transactions:</strong> ACID properties, isolation levels (Read Uncommitted → Serializable) and which anomalies each one prevents (dirty read, non-repeatable read, phantom read).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Concurrency control:</strong> optimistic vs pessimistic locking, MVCC (how Postgres/MySQL InnoDB actually implement it).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Joins &amp; query execution:</strong> nested loop vs hash vs merge join, and reading an <code>EXPLAIN</code> plan.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Storage engines:</strong> B-tree (Postgres/InnoDB) vs LSM-tree (Cassandra/RocksDB) — write-amplification vs read-amplification trade-offs, covered in more depth on the <a href="hld.html">HLD page</a>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:1.5rem;">
+      <h3>Best DBMS resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://15445.courses.cs.cmu.edu/" target="_blank" class="res-card">
+          <span class="res-type">Free · Grad course</span>
+          <span class="res-name">CMU 15-445 — Intro to Database Systems</span>
+          <span class="res-desc">Andy Pavlo's course, free on YouTube: storage models, indexing, query execution, concurrency control, and recovery — staff-level depth, not interview trivia.</span>
+        </a>
+        <a href="https://use-the-index-luke.com/" target="_blank" class="res-card">
+          <span class="res-type">Free · Deep dive</span>
+          <span class="res-name">Use The Index, Luke</span>
+          <span class="res-desc">The canonical explainer for how indexes actually work and why a query is slow — vendor-agnostic across Postgres, MySQL, Oracle, SQL Server.</span>
+        </a>
+        <a href="https://www.interviewbit.com/dbms-interview-questions/" target="_blank" class="res-card">
+          <span class="res-type">Free · Q&amp;A bank</span>
+          <span class="res-name">InterviewBit — DBMS Interview Questions</span>
+          <span class="res-desc">75+ question definition-level review — good for the night-before pass after you've done the CMU course once.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OS -->
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">02 — Operating Systems</span>
+      <h2>Processes, memory, concurrency</h2>
+      <p>This is the theory behind the Java concurrency questions on the <a href="java.html">Java page</a> — worth doing in this order: OS mental model first, then the JVM-specific implementation.</p>
+    </div>
+
+    <div class="accordion-grid">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core OS topics</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Processes vs threads:</strong> what's shared (address space, file descriptors) vs private (stack, registers, PC) — and why context-switching a thread is cheaper.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>CPU scheduling:</strong> round robin, priority scheduling, multilevel feedback queues — and starvation as the failure mode to always mention.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Memory management:</strong> paging vs segmentation, virtual memory, page replacement (LRU, Clock), thrashing.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Deadlocks:</strong> the four Coffman conditions (mutual exclusion, hold-and-wait, no preemption, circular wait) — prevention breaks one of them; the Banker's Algorithm is avoidance, not prevention.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Synchronization primitives:</strong> mutex vs semaphore vs monitor, the classic producer-consumer / dining-philosophers / readers-writers problems.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>IPC:</strong> pipes, message queues, shared memory, sockets — and when you'd reach for each.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:1.5rem;">
+      <h3>Best OS resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://pages.cs.wisc.edu/~remzi/OSTEP/" target="_blank" class="res-card">
+          <span class="res-type">Free · Full textbook</span>
+          <span class="res-name">Operating Systems: Three Easy Pieces (OSTEP)</span>
+          <span class="res-desc">The canonical free OS book — virtualization, concurrency, and persistence in three self-contained parts. Read the concurrency chapters even if you skim the rest.</span>
+        </a>
+        <a href="https://www.geeksforgeeks.org/operating-systems/operating-systems-interview-questions/" target="_blank" class="res-card">
+          <span class="res-type">Free · Q&amp;A bank</span>
+          <span class="res-name">GeeksforGeeks — OS Interview Questions</span>
+          <span class="res-desc">100+ definition-level questions across scheduling, memory, deadlocks, and synchronization — good for a fast breadth pass before a loop.</span>
+        </a>
+        <a href="https://www.interviewbit.com/operating-system-interview-questions/" target="_blank" class="res-card">
+          <span class="res-type">Free · Q&amp;A bank</span>
+          <span class="res-name">InterviewBit — OS Interview Questions</span>
+          <span class="res-desc">70+ questions organized by difficulty, with worked answers — pairs well with OSTEP for the concepts that need more than a one-liner.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CN -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">03 — Computer Networks</span>
+      <h2>Protocols &amp; the request lifecycle</h2>
+      <p>"What happens when you type a URL and hit enter" is still asked directly — and it's also the backbone of every networking building block on the <a href="hld.html">HLD page</a>.</p>
+    </div>
+
+    <div class="accordion-grid">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core networking topics</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>OSI / TCP-IP model:</strong> know the layers well enough to place any protocol you're asked about correctly, on the spot.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>TCP vs UDP:</strong> three-way handshake, reliability/ordering guarantees, and when UDP's lack of guarantees is the right trade-off (video, gaming, DNS).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>HTTP evolution:</strong> HTTP/1.1 vs HTTP/2 (multiplexing, header compression) vs HTTP/3 (QUIC over UDP) — and why each version exists.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>TLS handshake:</strong> what a certificate actually proves, and roughly how the handshake establishes a shared key.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>DNS resolution:</strong> the full chain — browser cache → OS cache → recursive resolver → root → TLD → authoritative server.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>The full "type a URL" flow:</strong> DNS resolution → TCP handshake → TLS handshake (if HTTPS) → HTTP request/response → render — be ready to narrate all five steps without prompting.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:1.5rem;">
+      <h3>Best networking resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://hpbn.co/" target="_blank" class="res-card">
+          <span class="res-type">Free · Full book</span>
+          <span class="res-name">High Performance Browser Networking</span>
+          <span class="res-desc">Ilya Grigorik's free O'Reilly book — TCP, UDP, TLS, HTTP/1.1 through HTTP/2, WebSocket, WebRTC. The most rigorous free resource on this list, staff-level depth.</span>
+        </a>
+        <a href="https://www.hellointerview.com/learn/system-design/core-concepts/networking-essentials" target="_blank" class="res-card">
+          <span class="res-type">Free · Interview-framed</span>
+          <span class="res-name">Hello Interview — Networking Essentials</span>
+          <span class="res-desc">The subset of networking that actually shows up in system design interviews, framed around the trade-offs interviewers probe rather than protocol trivia.</span>
+        </a>
+        <a href="https://www.geeksforgeeks.org/computer-networks/what-happens-when-we-type-a-url/" target="_blank" class="res-card">
+          <span class="res-type">Free · Classic walkthrough</span>
+          <span class="res-name">GeeksforGeeks — What Happens When You Type a URL</span>
+          <span class="res-desc">The direct answer to the question that gets asked almost verbatim — DNS → TCP → TLS → HTTP → render, step by step.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

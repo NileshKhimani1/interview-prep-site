@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>16-Week Big Tech Roadmap — SDE-2 Interview Prep</title>
+<meta name="description" content="A phased 16-week plan targeting Microsoft, Uber, Amazon, Google, Meta, and Apple across DSA, LLD, HLD, CS fundamentals, and behavioral prep.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html" class="active">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / 16-Week Roadmap</span>
+    <span class="section-eyebrow">Personalized Plan</span>
+    <h1>16-week Big Tech roadmap</h1>
+    <p>This is the longer track — a phased plan across five tracks (DSA, LLD, HLD, CS fundamentals, behavioral) for candidates targeting multiple companies at once — Microsoft (L61/62), Uber (L4/L5), Amazon (SDE-2/L5), Google (L4), Meta (E4), and Apple (ICT3) — rather than a single fast-tracked loop. Built around a calibration of existing strengths and five specific gaps to close, at ~18–20 hrs/week, with applications staggered from Week 9 so you're not interviewing before you're ready.</p>
+    <div class="header-meta">
+      <span>16 weeks</span>
+      <span>5 tracks</span>
+      <span>6 companies</span>
+      <span>~18–20 hrs/week</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="spring-grid" style="margin-bottom:2rem;">
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Existing strengths</h3>
+          <span class="topic-badge">Calibration</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Competitive programming background</div>
+        <div class="q-item"><span class="q-num">•</span>Kafka / event-driven systems experience</div>
+        <div class="q-item"><span class="q-num">•</span>Payments and scale systems work</div>
+        <div class="q-item"><span class="q-num">•</span>Low-latency design experience</div>
+        <div class="q-item"><span class="q-num">•</span>Security / ops depth — secrets management, K8s, observability tooling</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Five gaps to close</h3>
+          <span class="topic-badge topic-badge-uber">Focus areas</span>
+        </div>
+        <div class="q-item"><span class="q-num">1</span>Machine coding speed &amp; cleanliness — commit to Java only</div>
+        <div class="q-item"><span class="q-num">2</span>Concurrency implementation, not just theory — circuit breakers, concurrent data structures</div>
+        <div class="q-item"><span class="q-num">3</span>OS / CN fundamentals — needed for Microsoft's OA and loop</div>
+        <div class="q-item"><span class="q-num">4</span>HLD articulation — turning real experience into a repeatable framework</div>
+        <div class="q-item"><span class="q-num">5</span>Behavioral prep — explaining tenure across three companies</div>
+      </div>
+    </div>
+
+    <div class="time-alloc">
+      <span class="pill">DSA — 30%</span>
+      <span class="pill">LLD — 30%</span>
+      <span class="pill">HLD — 25%</span>
+      <span class="pill">Behavioral — 10%</span>
+      <span class="pill">OS / CN / DBMS — 5%</span>
+    </div>
+
+    <div class="timeline">
+      <div class="week-card">
+        <div class="week-num-badge">Wk 1–2</div>
+        <div class="week-content">
+          <h4>Baseline</h4>
+          <p>Establish starting pattern coverage, LLD reps, and HLD framework literacy before ramping intensity.</p>
+          <div class="week-tags"><span>Diagnostic</span><span>Framework setup</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 3–5</div>
+        <div class="week-content">
+          <h4>Build I</h4>
+          <p>Tier 1–2 DSA patterns, Layer 1–2 LLD (OOP, SOLID, core design patterns), HLD building blocks breadth pass.</p>
+          <div class="week-tags"><span>Core patterns</span><span>Breadth pass</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 6–8</div>
+        <div class="week-content">
+          <h4>Build II</h4>
+          <p>Tier 3 differentiators, timed LLD problem sets, HLD deep-dive blocks, resume rewrite in Week 7.</p>
+          <div class="week-tags"><span>Deep dives</span><span>Resume edit</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 9–11</div>
+        <div class="week-content">
+          <h4>Apply + simulate</h4>
+          <p>Applications open — warm-up companies first, then Amazon/Microsoft, then Uber, then Google/Meta. Mocks begin.</p>
+          <div class="week-tags"><span>Staggered applying</span><span>Mocks start</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 12–14</div>
+        <div class="week-content">
+          <h4>Pressure</h4>
+          <p>Increasing mock cadence under timed, loop-realistic conditions across DSA, LLD, and HLD.</p>
+          <div class="week-tags"><span>Timed loops</span><span>Mock volume ↑</span></div>
+        </div>
+      </div>
+      <div class="week-card">
+        <div class="week-num-badge">Wk 15–16</div>
+        <div class="week-content">
+          <h4>Sharpen</h4>
+          <p>Error-log review, re-solve weak problems, re-record HLD walkthroughs, finalize behavioral story bank.</p>
+          <div class="week-tags"><span>Error log</span><span>Final polish</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="accordion-grid">
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Track A — DSA by patterns</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>~180–220 problems across three tiers.</div>
+          <div class="q-item"><span class="q-num">T1</span><strong>Automatic:</strong> Two Pointers, Sliding Window, Prefix Sum, Hashing, Binary Search on Answer, Heaps, Intervals, Monotonic Stack, Stack/Parentheses.</div>
+          <div class="q-item"><span class="q-num">T2</span><strong>SDE-2 core:</strong> Trees, BST, Graph traversal, Topological Sort, Shortest Path, Union-Find, Backtracking, 1-D DP, 2-D/Grid DP, Knapsack, Greedy.</div>
+          <div class="q-item"><span class="q-num">T3</span><strong>Differentiators:</strong> Trie, Segment Tree/Fenwick, Bit Manipulation, Matrix/Design, Math/Randomized.</div>
+          <div class="q-item"><span class="q-num">•</span>Method: the "20-minute rule" for pattern recognition, narrating solutions aloud. Amazon rewards a working brute force over a "buggy optimal" solution; Google/Meta expect optimal solutions under tighter time.</div>
+          <blockquote class="roadmap-quote">"This single habit is worth more than 200 extra problems" — on weekly error-log review.</blockquote>
+          <div class="q-item"><span class="q-num">•</span><strong>Resources:</strong> <a href="https://algomaster.io" target="_blank">AlgoMaster.io</a>, <a href="https://github.com/topics/leetcode-solutions" target="_blank">awesome-leetcode-resources</a>, <a href="https://neetcode.io/practice" target="_blank">NeetCode 250</a>, <a href="https://leetcode.com/company/" target="_blank">LeetCode company tags</a>, <a href="https://codeforces.com/" target="_blank">Codeforces Div 2</a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Track B — LLD (Java)</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Java committed as the interview language throughout.</div>
+          <div class="q-item"><span class="q-num">L1</span><strong>Foundations:</strong> OOP pillars, SOLID, UML, Java concurrency primitives (ReentrantLock, ConcurrentHashMap, CompletableFuture).</div>
+          <div class="q-item"><span class="q-num">L2</span><strong>Patterns —</strong> Tier 1: Strategy, Observer, Factory/Abstract Factory, State. Tier 2: Singleton, Builder, Decorator, Adapter, Command, Chain of Responsibility, Template Method, Composite, Proxy, Facade, Iterator. Tier 3: Flyweight, Prototype, Mediator, Visitor, Bridge, Memento.</div>
+          <div class="q-item"><span class="q-num">L3</span><strong>45-min drills —</strong> Set A: Parking Lot, Vending Machine, ATM, Tic-Tac-Toe, Library System. Set B: Elevator, Rate Limiter, LRU/LFU Cache, Seat Booking, Splitwise, Notification Service, Logging Framework, KV Store w/ Transactions, File System. Set C: Circuit Breaker, Job Scheduler, Concurrent HashMap w/ getRandom, Order Matching Engine, Payment Gateway, Ride-hailing, Food Delivery, Alert System, Transaction Filtering, Chess, Auction System. Set D: bounded queues, producer-consumer, thread-safe LRU, connection pools, dining philosophers.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>DBMS:</strong> normalization, indexing, ACID/isolation levels, locking strategies, schema exercises — full breakdown on the <a href="fundamentals.html">Computer Fundamentals page</a>.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Resources:</strong> <a href="https://github.com/topics/low-level-design" target="_blank">awesome-low-level-design</a>, <a href="https://refactoring.guru/design-patterns" target="_blank">Refactoring.Guru</a>, <em>Head First Design Patterns</em>, <a href="https://www.youtube.com/@ChristopherOkhravi" target="_blank">Christopher Okhravi</a>, Concept &amp;&amp; Coding by Shrayansh, <a href="https://www.youtube.com/@UditAgarwal" target="_blank">Udit Agarwal</a>, CodeZym.</div>
+          <div class="q-item"><span class="q-num">→</span>Full pattern tiers, UML checklist, and the 45-minute drill sets by difficulty are on the dedicated <a href="lld.html"><strong>LLD page</strong></a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Track C — HLD</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>8-step framework:</strong> Requirements → Estimation → API Design → Data Model → High-level Architecture → Deep Dive → Stress Test → Wrap-up.</div>
+          <div class="q-item"><span class="q-num">•</span>Commit to decisions rather than hedging; match technical vocabulary to actual system scale (don't misapply CAP theorem to non-distributed systems).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Breadth pass:</strong> load balancers, CDN, DNS, SQL vs NoSQL, caching, message queues, object storage, search, rate limiting, consistent hashing, protocols, observability.</div>
+          <div class="q-item"><span class="q-num">A</span>CAP/PACELC, consistency models, replication, consensus (Raft/Paxos), partitioning/sharding, distributed transactions.</div>
+          <div class="q-item"><span class="q-num">B</span>Storage engines (B-tree vs LSM), caching strategies, Kafka internals, indexing/search, time-series aggregation, geospatial indexing.</div>
+          <div class="q-item"><span class="q-num">C</span>Failure handling, rate limiting, networking, real-time delivery, ID generation, multi-region architecture, observability, security, cost awareness.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Problem set:</strong> Foundational, Feed &amp; Social, Real-time, Geo, Data-heavy, Financial — plus a polished walkthrough of your own production systems.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Resources:</strong> <a href="https://www.hellointerview.com/learn/system-design" target="_blank">Hello Interview</a> (primary spine), <a href="https://www.youtube.com/@jordanhasnolife5163" target="_blank">Jordan Has No Life</a>, <em>Designing Data-Intensive Applications</em>, <em>System Design Interview</em> Vol 1/2, <a href="https://github.com/donnemartin/system-design-primer" target="_blank">system-design-primer</a>, <a href="https://bytebytego.com" target="_blank">ByteByteGo</a>, <a href="https://pdos.csail.mit.edu/6.824/" target="_blank">MIT 6.5840</a>.</div>
+          <div class="q-item"><span class="q-num">→</span>Full 8-step framework, building-blocks breadth pass, and the six-category problem set are on the dedicated <a href="hld.html"><strong>HLD page</strong></a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Track D — CS fundamentals</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">OS</span>Processes/threads, scheduling, memory management, deadlocks, synchronization primitives, IPC.</div>
+          <div class="q-item"><span class="q-num">CN</span>OSI/TCP-IP, TCP vs UDP, HTTP versions, TLS, DNS, "what happens when you type a URL."</div>
+          <div class="q-item"><span class="q-num">JVM</span>Memory model, GC, HashMap internals, concurrency semantics — question bank on the <a href="java.html">Java page</a>.</div>
+          <div class="q-item"><span class="q-num">→</span>Full DBMS, OS, and CN breakdowns with curated resources (OSTEP, CMU 15-445, High Performance Browser Networking) are on the dedicated <a href="fundamentals.html"><strong>Computer Fundamentals page</strong></a>.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Track E — Behavioral prep</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Story bank:</strong> 12 STARR-format stories mapped to resume achievements and interview signals (Ownership, Dive Deep, Customer Obsession), checked against Amazon's 16 Leadership Principles.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Tenure question:</strong> frame three prior job changes as a trajectory that reads as "increasing depth, not restlessness."</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Company framing:</strong> Amazon (LP-scoring every round), Microsoft, Uber, Google ("Googleyness"), Meta (tighter behavioral pacing).</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Company playbooks</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Dedicated playbook per company — Microsoft, Uber, Amazon, Google, Meta, Apple.</div>
+          <div class="q-item"><span class="q-num">•</span>Each covers typical interview loop structure, round composition, common question types, and a recommended preparation window.</div>
+          <div class="q-item"><span class="q-num">•</span>See the <a href="companies.html">Companies</a> page for Amazon/Uber/Apple pattern frequency, round notes, and current 2026 interview-experience threads.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Applications, mocks &amp; resume</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Strict "prepare only" through Week 8. Staggered applications from Week 9 — warm-up companies, then Amazon/Microsoft, then Uber, then Google/Meta.</div>
+          <div class="q-item"><span class="q-num">•</span>Increasing mock interview cadence from Week 9 (free and paid options).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Resume changes (Wk 7):</strong> lead with scale metrics, cut buzzword padding (redundant "AI" mentions), trim the language list to 2–3 core languages, add impact metrics to the thin bullet on the short-tenure role.</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Checklists &amp; compressed 8-week plan</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Weekly:</strong> problem-count targets, pattern implementation reps, mocks from Week 9 onward.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Monthly:</strong> re-solve error-log problems, redo old LLD problems, re-record HLD walkthroughs.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>If compressed to 8 weeks</strong> — cut: Tier 3 DSA, some LLD/HLD problems, OS/CN (unless targeting Microsoft/Apple). Keep non-negotiable: error log, concurrency drills, behavioral story bank, timed LLD practice, production-system walkthroughs. See the full <a href="plan.html">8-week plan</a>.</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resources-strip" style="margin-top:2rem;">
+      <h3>Closing priorities</h3>
+      <p style="font-size:13px;color:var(--text-secondary);line-height:1.7;">DSA skill alone won't secure an SDE-2 offer. Verbalizing reasoning out loud is critical to interview scoring. Production system experience is the key differentiator against typical competing candidates — plan to walk through it fluently in every HLD and behavioral round.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

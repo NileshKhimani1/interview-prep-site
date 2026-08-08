@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HLD — High-Level Design — SDE-2 Interview Prep</title>
+<meta name="description" content="High-level system design interview prep: the 8-step framework, building blocks, deep-dive topics by category, problem sets, and the best resources including Hello Interview, ByteByteGo, and DDIA.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html" class="active">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / HLD</span>
+    <span class="section-eyebrow">High-Level Design</span>
+    <h1>HLD — distributed systems design</h1>
+    <p>At senior/staff level, HLD is less about knowing every building block and more about defending trade-offs under pressure — why this consistency model, why this partitioning scheme, why not just cache it. The strongest signal an interviewer gets is a candidate who commits to a decision, states the trade-off out loud, and can defend it when pushed, rather than one who lists every option and hedges. This page is the framework, the building blocks, the deep-dive topics organized the way real interviews probe them, and the resources worth working through end to end.</p>
+    <div class="header-meta">
+      <span>8-step framework</span>
+      <span>18 breadth topics</span>
+      <span>6 problem categories</span>
+      <span>7 curated resources</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Framework</span>
+      <h2>The 8-step approach</h2>
+      <p>Run every problem through this sequence out loud — interviewers are grading the process at least as much as the final diagram.</p>
+    </div>
+
+    <div class="timeline">
+      <div class="week-card"><div class="week-num-badge">1</div><div class="week-content"><h4>Requirements</h4><p>Functional + non-functional. Explicitly ask what's out of scope — a scoped-down design done well beats an unscoped one done poorly.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">2</div><div class="week-content"><h4>Estimation</h4><p>Back-of-envelope QPS, storage, and bandwidth. Round numbers, show the math, and use the results to justify later decisions.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">3</div><div class="week-content"><h4>API design</h4><p>Core endpoints/contracts. Keep it minimal — just enough to anchor the data model and high-level flow.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">4</div><div class="week-content"><h4>Data model</h4><p>Entities, relationships, and the SQL-vs-NoSQL call — justified by the access patterns from step 1, not by default habit.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">5</div><div class="week-content"><h4>High-level architecture</h4><p>The boxes-and-arrows diagram: clients, load balancers, services, caches, queues, stores.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">6</div><div class="week-content"><h4>Deep dive</h4><p>Interviewer picks 1–2 components to go deep on. This is where the "senior" signal actually gets measured.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">7</div><div class="week-content"><h4>Stress test</h4><p>Bottlenecks, single points of failure, hot partitions — proactively surface them before being asked.</p></div></div>
+      <div class="week-card"><div class="week-num-badge">8</div><div class="week-content"><h4>Wrap-up</h4><p>Summarize trade-offs made and what you'd revisit with more time. Shows self-awareness about the design's limits.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Building blocks</span>
+      <h2>Breadth pass</h2>
+      <p>You should be able to explain what each of these is, when to reach for it, and its single biggest trade-off in one breath.</p>
+    </div>
+    <div class="time-alloc">
+      <span class="pill">Load balancers</span>
+      <span class="pill">CDN</span>
+      <span class="pill">DNS</span>
+      <span class="pill">SQL vs NoSQL</span>
+      <span class="pill">Caching (client/CDN/app/DB)</span>
+      <span class="pill">Message queues</span>
+      <span class="pill">Object storage</span>
+      <span class="pill">Search (inverted index)</span>
+      <span class="pill">Rate limiting</span>
+      <span class="pill">Consistent hashing</span>
+      <span class="pill">API Gateway</span>
+      <span class="pill">Service discovery</span>
+      <span class="pill">Sharding/partitioning</span>
+      <span class="pill">Replication</span>
+      <span class="pill">Protocols (HTTP/gRPC/WebSocket)</span>
+      <span class="pill">Observability</span>
+      <span class="pill">Idempotency</span>
+      <span class="pill">Backpressure</span>
+    </div>
+
+    <div class="accordion-grid" style="margin-top:1.5rem;">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>A — Distributed systems theory</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>CAP theorem and PACELC — and, critically, when <em>not</em> to invoke CAP (don't apply it to a single-node system, a mistake that reads as memorized-not-understood).</div>
+          <div class="q-item"><span class="q-num">•</span>Consistency models: strong, eventual, causal, read-your-writes.</div>
+          <div class="q-item"><span class="q-num">•</span>Consensus: Raft and Paxos at the level of "what problem do they solve and why is leader election hard," not full proofs.</div>
+          <div class="q-item"><span class="q-num">•</span>Partitioning/sharding strategies, distributed transactions (2PC, Saga pattern).</div>
+        </div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>B — Storage &amp; data infrastructure</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Storage engines: B-tree vs LSM-tree — why Cassandra/RocksDB pick LSM for write-heavy workloads.</div>
+          <div class="q-item"><span class="q-num">•</span>Caching strategies: cache-aside, write-through, write-behind, and eviction policy trade-offs.</div>
+          <div class="q-item"><span class="q-num">•</span>Kafka internals: partitions, consumer groups, offset management, exactly-once semantics.</div>
+          <div class="q-item"><span class="q-num">•</span>Indexing/search (inverted index basics), time-series aggregation, geospatial indexing (geohash, quadtree).</div>
+        </div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>C — Reliability &amp; operations</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Failure handling: retries with backoff, circuit breakers, bulkheads — see the <a href="spring.html">Spring Boot resilience section</a> for implementation depth.</div>
+          <div class="q-item"><span class="q-num">•</span>Rate limiting algorithms (token bucket, sliding window log), networking basics — see the <a href="fundamentals.html">Computer Networks section</a>.</div>
+          <div class="q-item"><span class="q-num">•</span>Real-time delivery (long polling, SSE, WebSocket), distributed ID generation (Snowflake-style).</div>
+          <div class="q-item"><span class="q-num">•</span>Multi-region architecture, observability (metrics/logs/traces), security basics, cost awareness at scale.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Practice</span>
+      <h2>Problem set by category</h2>
+      <p>Do at least one from each category — interviewers pick problems that map to these shapes far more often than fully novel ones.</p>
+    </div>
+    <div class="companies-grid">
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Foundational</span></div><div class="company-problems"><div class="cp-row">URL Shortener</div><div class="cp-row">Rate Limiter</div><div class="cp-row">Key-Value Store</div><div class="cp-row">Distributed Cache</div></div></div>
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Feed &amp; Social</span></div><div class="company-problems"><div class="cp-row">News Feed</div><div class="cp-row">Twitter/X</div><div class="cp-row">Instagram</div><div class="cp-row">Notification System</div></div></div>
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Real-time</span></div><div class="company-problems"><div class="cp-row">Chat System</div><div class="cp-row">Live Comments</div><div class="cp-row">Collaborative Doc Editor</div><div class="cp-row">Ride-Hailing Dispatch <span class="co-tag uber">Uber</span></div></div></div>
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Geo / Location</span></div><div class="company-problems"><div class="cp-row">Proximity Service (Yelp-style)</div><div class="cp-row">Uber ETA / matching <span class="co-tag uber">Uber</span></div><div class="cp-row">Google Maps-style routing</div></div></div>
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Data-heavy</span></div><div class="company-problems"><div class="cp-row">Web Crawler</div><div class="cp-row">Log Aggregation / Analytics</div><div class="cp-row">Ad Click Aggregator</div><div class="cp-row">Search Autocomplete</div></div></div>
+      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Financial</span></div><div class="company-problems"><div class="cp-row">Payment System <span class="co-tag amazon">Amazon</span></div><div class="cp-row">Order Matching Engine</div><div class="cp-row">Splitwise / Ledger</div></div></div>
+    </div>
+    <div class="company-note" style="border-radius: var(--radius-lg); margin-top: 1rem;">
+      <strong>Highest-leverage extra prep:</strong> a polished 5-minute walkthrough of a real production system you built — scale numbers, the hardest trade-off you made, and what you'd change with hindsight. This is the differentiator against candidates who've only ever designed textbook problems.
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Best HLD resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.hellointerview.com/learn/system-design" target="_blank" class="res-card">
+          <span class="res-type">Free · Primary spine</span>
+          <span class="res-name">Hello Interview — System Design in a Hurry</span>
+          <span class="res-desc">Built by former FAANG hiring managers. The fastest path to interview-ready if you have limited time — problem breakdowns plus the core-concepts reference used elsewhere on this page.</span>
+        </a>
+        <a href="https://bytebytego.com" target="_blank" class="res-card">
+          <span class="res-type">Free + Paid</span>
+          <span class="res-name">ByteByteGo — Alex Xu</span>
+          <span class="res-desc">Digital companion to "System Design Interview: An Insider's Guide" — clean diagrams, weekly newsletter on real production architectures.</span>
+        </a>
+        <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" class="res-card">
+          <span class="res-type">Free · Part 1/3</span>
+          <span class="res-name">System Design Concepts (1–38)</span>
+          <span class="res-desc">Scalability, availability, reliability, latency vs throughput, client-server, SQL vs NoSQL — the vocabulary layer everything else builds on.</span>
+        </a>
+        <a href="https://newsletter.systemdesign.one/p/system-design-core-concepts" target="_blank" class="res-card">
+          <span class="res-type">Free · Part 2/3</span>
+          <span class="res-name">System Design Core Concepts (39–76)</span>
+          <span class="res-desc">WebSockets, API gateways, distributed caches, consensus (Paxos/Raft), 2PC/Saga, CDC — the mid-tier vocabulary most breadth lists skip.</span>
+        </a>
+        <a href="https://newsletter.systemdesign.one/p/system-design-fundamentals" target="_blank" class="res-card">
+          <span class="res-type">Free · Part 3/3</span>
+          <span class="res-name">System Design Fundamentals (77–114)</span>
+          <span class="res-desc">Webhooks, WebRTC, CQRS, event sourcing, service discovery, circuit breakers — the advanced-pattern layer that separates senior answers from mid-level ones.</span>
+        </a>
+        <a href="https://github.com/donnemartin/system-design-primer" target="_blank" class="res-card">
+          <span class="res-type">Free · 300k★ repo</span>
+          <span class="res-name">system-design-primer</span>
+          <span class="res-desc">The original open-source breadth reference — index cards on every building block plus worked example architectures.</span>
+        </a>
+        <a href="https://pdos.csail.mit.edu/6.824/" target="_blank" class="res-card">
+          <span class="res-type">Free · Grad course</span>
+          <span class="res-name">MIT 6.5840 — Distributed Systems</span>
+          <span class="res-desc">For the "why" behind Raft, MapReduce, and distributed transactions — go here when you want to actually understand consensus, not just cite it.</span>
+        </a>
+      </div>
+      <p style="font-size:12px;color:var(--text-muted);margin-top:1rem;">Also essential as books: <em>Designing Data-Intensive Applications</em> (Kleppmann) and <em>System Design Interview</em> Vol. 1/2 (Xu). Both are the print backbone most of the sites above summarize.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

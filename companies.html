@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Company Problem Sets — SDE-2 Interview Prep</title>
+<meta name="description" content="Amazon, Uber, and Apple SDE-2 problem sets with pattern frequency, round structure, and 2026 interview-experience sources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html" class="active">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / Companies</span>
+    <span class="section-eyebrow">Company Focus</span>
+    <h1>Targeted problem sets</h1>
+    <p>Amazon, Uber, and Apple ask different things at the SDE-2 level even when the underlying DSA overlaps — this page exists to show you exactly where they diverge. Each card breaks down pattern frequency, round structure, and what candidates actually reported in 2025–26 loops, so your prep time goes toward what a specific company rewards instead of a generic "top 150" list.</p>
+    <div class="header-meta">
+      <span>3 companies</span>
+      <span>20+ tagged problems</span>
+      <span>6 sourced 2026 reports</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="companies-grid">
+
+      <div class="company-card company-amazon">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Amazon</h3>
+            <p>SDE-2 · L5 · High LP weight</p>
+          </div>
+          <a href="https://leetcode.com/company/amazon/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Graphs / BFS / DSU</span>
+          <span class="pill">DP</span>
+          <span class="pill">Sliding Window</span>
+          <span class="pill">Trees</span>
+          <span class="pill">Arrays</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">Sliding Window Maximum</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/word-ladder/" target="_blank">Word Ladder</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/accounts-merge/" target="_blank">Accounts Merge (DSU)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank">Course Schedule II (Topo)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/word-break/" target="_blank">Word Break</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/house-robber/" target="_blank">House Robber I & II</a><span class="diff diff-med">Med</span></div>
+        </div>
+        <div class="company-note">
+          <strong>OA + Loop format:</strong> Online assessment is 2 DSA problems + LP survey (HackerRank). The onsite Loop runs 3–4 rounds and is roughly a 50/50 split between technical problems and Leadership Principle probes — each interviewer is typically assigned 2–3 specific LPs to dig into. 2026 reports lean heavily on Sliding Window (sum/max-in-window variants), Merge Intervals, and Dijkstra-flavored graph problems. Most rounds use a plain editor with no autocomplete or compiler, so practice dry-running examples by hand. Prep 6–8 STAR stories that map to Customer Obsession, Ownership, and Bias for Action.
+        </div>
+      </div>
+
+      <div class="company-card company-uber">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Uber</h3>
+            <p>SDE-2 · L4 · Concurrency in LLD</p>
+          </div>
+          <a href="https://leetcode.com/company/uber/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Graphs / Routing</span>
+          <span class="pill">Heaps</span>
+          <span class="pill">Intervals</span>
+          <span class="pill">DP on Trees</span>
+          <span class="pill">Sliding Window</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank">K Closest Points to Origin</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/" target="_blank">Cheapest Flights K Stops</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/merge-intervals/" target="_blank">Merge Intervals</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/meeting-rooms-ii/" target="_blank">Meeting Rooms II</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/alien-dictionary/" target="_blank">Alien Dictionary (Topo)</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank">Largest Rect. in Histogram</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank">Minimum Window Substring</a><span class="diff diff-hard">Hard</span></div>
+        </div>
+        <div class="company-note">
+          <strong>Machine coding round:</strong> Uber is unusual in that both the DSA round <em>and</em> the machine-coding round require code that actually compiles and runs, not pseudocode on a whiteboard — interviewers (sometimes Staff-level) fire rapid follow-ups on edge cases and trade-offs. Recent 2026 reports include a 60-minute "design an in-memory Twitter" build. Prepare: Rate Limiter, Trip State Machine, Job Scheduler, Concurrent HashMap with getRandom. Segment trees show up at the hard end for SDE-2/L4.
+        </div>
+      </div>
+
+      <div class="company-card company-apple">
+        <div class="company-card-header">
+          <div class="company-info">
+            <h3>Apple</h3>
+            <p>ICT3/4 · Team-varies · Java + DSA combo</p>
+          </div>
+          <a href="https://leetcode.com/company/apple/" target="_blank" class="company-lc-link">LC problems →</a>
+        </div>
+        <div class="company-pills">
+          <span class="pill">Arrays / Strings</span>
+          <span class="pill">Trees / Linked Lists</span>
+          <span class="pill">Concurrency</span>
+          <span class="pill">Design DS</span>
+          <span class="pill">Java / Spring</span>
+        </div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank">Trapping Rain Water</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache (thread-safe)</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">Binary Tree Max Path Sum</a><span class="diff diff-hard">Hard</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/odd-even-linked-list/" target="_blank">Odd Even Linked List</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row"><a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank">Implement Trie</a><span class="diff diff-med">Med</span></div>
+          <div class="cp-row">Custom DS with add/remove<span class="diff diff-med">Med</span></div>
+        </div>
+        <div class="company-note">
+          <strong>Unique to Apple:</strong> ICT3 (~3–6 yrs) and ICT4 (~6–10 yrs) loops both fold Java + Spring Boot questions into the same 60-minute slot as the DSA problem — a confirmed 2025–26 pattern is 30 min on a problem like Trapping Rain Water followed by 30 min on Spring Cloud, Comparator vs Comparable, or default interface methods. CAP theorem, Factory pattern, and circuit breaking all come up. The single 45-minute system-design round at ICT3/4 expects a coherent end-to-end design, not exhaustive depth.
+        </div>
+      </div>
+
+    </div>
+
+    <div class="resources-strip">
+      <h3>Company-tagged problem sources</h3>
+      <div class="resource-links-row">
+        <a href="https://github.com/topics/uber-interview" target="_blank" class="resource-pill">GitHub: uber-interview tag →</a>
+        <a href="https://github.com/topics/amazon-interview" target="_blank" class="resource-pill">GitHub: amazon-interview tag →</a>
+        <a href="https://www.dsaprep.dev/blog" target="_blank" class="resource-pill">dsaprep.dev — Uber 2026 analysis →</a>
+        <a href="https://medium.com/@prashant558908/amazon-most-frequent-ds-algo-questions-in-2025" target="_blank" class="resource-pill">Amazon frequent questions 2025 →</a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>2026 interview-experience threads (per company)</h3>
+      <div class="resource-cards-row">
+        <a href="https://leetcode.com/discuss/post/8420230/" target="_blank" class="res-card">
+          <span class="res-type">Amazon · LC Discuss</span>
+          <span class="res-name">SDE-2 Interview Experience, 2026</span>
+          <span class="res-desc">3–4 YOE candidate report: round-by-round breakdown, actual questions asked, and LP probes used in each round.</span>
+        </a>
+        <a href="https://www.coprep.ai/blog/amazon-sde-interview-questions-and-answers-in-2026-round-by-round-guide" target="_blank" class="res-card">
+          <span class="res-type">Amazon · Guide</span>
+          <span class="res-name">Amazon SDE Interview Q&A — Round-by-Round (2026)</span>
+          <span class="res-desc">Structured guide mapping each Loop round to the question types and evaluation criteria used.</span>
+        </a>
+        <a href="https://interviewexperiences.in/experience/uber/uber-sde2" target="_blank" class="res-card">
+          <span class="res-type">Uber · Report</span>
+          <span class="res-name">Uber SDE-2 Interview Experience</span>
+          <span class="res-desc">Candidate walkthrough of the DSA, machine-coding, and HLD rounds with the actual prompts used.</span>
+        </a>
+        <a href="https://roundz.substack.com/p/interview-experience-169-uber-sde2" target="_blank" class="res-card">
+          <span class="res-type">Uber · Report</span>
+          <span class="res-name">Interview Experience #169 — Uber SDE-2</span>
+          <span class="res-desc">Detailed round log including interviewer seniority and the kind of follow-up pressure to expect.</span>
+        </a>
+        <a href="https://interviewpilot.dev/interview-experiences/apple" target="_blank" class="res-card">
+          <span class="res-type">Apple · Guide</span>
+          <span class="res-name">Apple SWE Interview Experience (ICT3/ICT4, 2025–26)</span>
+          <span class="res-desc">Level-specific breakdown of the loop structure and the Java/Spring follow-ups layered onto the coding round.</span>
+        </a>
+        <a href="https://www.onsites.fyi/blog/article/apple-ict3-software-engineer-interview-questions" target="_blank" class="res-card">
+          <span class="res-type">Apple · Report</span>
+          <span class="res-name">Apple ICT3 Interview Questions — Onsites.fyi</span>
+          <span class="res-desc">Phone screen through onsite: real questions asked at each stage for the ICT3 loop.</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
