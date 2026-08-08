@@ -82,7 +82,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ============ GLOBAL SEARCH ============
+// ============ GLOBAL SEARCH (always-visible nav bar) ============
 (function () {
   if (typeof SEARCH_INDEX === 'undefined') return; // search-data.js not loaded on this page
 
@@ -91,68 +91,51 @@ document.head.appendChild(style);
   let activeIndex = -1;
   let currentResults = [];
 
-  // --- inject trigger button into nav ---
-  const navRight = document.querySelector('.nav-right');
-  let trigger = null;
-  if (navRight) {
-    trigger = document.createElement('button');
-    trigger.type = 'button';
-    trigger.className = 'search-trigger';
-    trigger.setAttribute('aria-label', 'Search this site');
-    trigger.innerHTML = '🔍<span class="search-trigger-key">/</span>';
-    navRight.insertBefore(trigger, navRight.firstChild);
-  }
+  const navInner = document.querySelector('.nav-inner');
+  if (!navInner) return;
 
-  // --- inject modal markup ---
-  const overlay = document.createElement('div');
-  overlay.className = 'search-overlay';
-  overlay.setAttribute('aria-hidden', 'true');
-  overlay.innerHTML = `
-    <div class="search-modal" role="dialog" aria-modal="true" aria-label="Site search">
-      <div class="search-input-row">
-        <span class="search-icon">🔍</span>
-        <input type="text" class="search-input" placeholder="Search patterns, design topics, problems, resources…" autocomplete="off" spellcheck="false">
-        <span class="search-esc">ESC</span>
-      </div>
-      <div class="search-results"></div>
-    </div>
+  // --- inject the always-visible search bar, centered in the nav ---
+  const bar = document.createElement('div');
+  bar.className = 'nav-search-bar';
+  bar.innerHTML = `
+    <span class="nav-search-icon">🔍</span>
+    <input type="text" class="nav-search-input" placeholder="Search patterns, topics, problems, resources…" autocomplete="off" spellcheck="false" aria-label="Search this site">
+    <span class="nav-search-key">/</span>
+    <div class="nav-search-dropdown"><div class="search-results"></div></div>
   `;
-  document.body.appendChild(overlay);
-  const input = overlay.querySelector('.search-input');
-  const resultsEl = overlay.querySelector('.search-results');
-  const modal = overlay.querySelector('.search-modal');
+  navInner.appendChild(bar);
+  const input = bar.querySelector('.nav-search-input');
+  const resultsEl = bar.querySelector('.search-results');
 
-  function openSearch() {
-    overlay.classList.add('open');
-    overlay.setAttribute('aria-hidden', 'false');
-    input.value = '';
-    renderResults([]);
-    setTimeout(() => input.focus(), 10);
-  }
-  function closeSearch() {
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden', 'true');
-  }
+  function openDropdown() { bar.classList.add('open'); }
+  function closeDropdown() { bar.classList.remove('open'); activeIndex = -1; }
 
-  if (trigger) trigger.addEventListener('click', openSearch);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
+  input.addEventListener('focus', () => { if (input.value.trim()) openDropdown(); });
+  document.addEventListener('click', (e) => {
+    if (!bar.contains(e.target)) closeDropdown();
+  });
   document.addEventListener('keydown', (e) => {
-    if (e.key === '/' && !overlay.classList.contains('open')) {
-      const tag = (document.activeElement && document.activeElement.tagName) || '';
-      if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    const tag = (document.activeElement && document.activeElement.tagName) || '';
+    const typing = tag === 'INPUT' || tag === 'TEXTAREA';
+
+    if (e.key === '/' && !typing) {
       e.preventDefault();
-      openSearch();
-    } else if (e.key === 'Escape' && overlay.classList.contains('open')) {
-      closeSearch();
-    } else if (overlay.classList.contains('open') && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
+      input.focus();
+      input.select();
+    } else if (e.key === 'Escape' && document.activeElement === input) {
+      input.value = '';
+      closeDropdown();
+      input.blur();
+    } else if (bar.classList.contains('open') && (e.key === 'ArrowDown' || e.key === 'ArrowUp')) {
       e.preventDefault();
       if (!currentResults.length) return;
       activeIndex = e.key === 'ArrowDown'
         ? Math.min(activeIndex + 1, currentResults.length - 1)
         : Math.max(activeIndex - 1, 0);
       highlightActive();
-    } else if (overlay.classList.contains('open') && e.key === 'Enter') {
+    } else if (bar.classList.contains('open') && e.key === 'Enter') {
       if (activeIndex >= 0 && currentResults[activeIndex]) goToResult(currentResults[activeIndex]);
+      else if (currentResults[0]) goToResult(currentResults[0]);
     }
   });
 
@@ -194,8 +177,10 @@ document.head.appendChild(style);
     activeIndex = -1;
     if (!input.value.trim()) {
       resultsEl.innerHTML = '<div class="search-empty">Type to search patterns, LLD/HLD topics, problems, and curated resources across the whole site.</div>';
+      closeDropdown();
       return;
     }
+    openDropdown();
     if (!results.length) {
       resultsEl.innerHTML = '<div class="search-empty">No matches. Try a shorter or different term.</div>';
       return;
@@ -232,7 +217,8 @@ document.head.appendChild(style);
   }
 
   function goToResult(entry) {
-    closeSearch();
+    closeDropdown();
+    input.blur();
     if (entry.p === CURRENT_PAGE) {
       if (entry.id) {
         history.pushState(null, '', '#' + entry.id);
