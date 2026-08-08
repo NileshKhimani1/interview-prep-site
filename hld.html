@@ -136,14 +136,91 @@
         </button>
         <div class="accordion-body">
           <div class="q-item"><span class="q-num">•</span>Failure handling: retries with backoff, circuit breakers, bulkheads — see the <a href="spring.html">Spring Boot resilience section</a> for implementation depth.</div>
-          <div class="q-item"><span class="q-num">•</span>Rate limiting algorithms (token bucket, sliding window log), networking basics — see the <a href="fundamentals.html">Computer Networks section</a>.</div>
+          <div class="q-item"><span class="q-num">•</span>Rate limiting algorithms (token bucket, sliding window log), networking basics — see the <a href="networking.html">Computer Networks page</a>.</div>
           <div class="q-item"><span class="q-num">•</span>Real-time delivery (long polling, SSE, WebSocket), distributed ID generation (Snowflake-style).</div>
           <div class="q-item"><span class="q-num">•</span>Multi-region architecture, observability (metrics/logs/traces), security basics, cost awareness at scale.</div>
         </div>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="java-resources" style="margin-top:2rem;">
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Practice</span>
+      <h2>Problem set by category</h2>
+      <p>Do at least one from each category — interviewers pick problems that map to these shapes far more often than fully novel ones. Every problem below links to a solid breakdown to read before you attempt it cold.</p>
+    </div>
+    <div class="companies-grid">
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Foundational</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/how-to-design-a-tiny-url-or-url-shortener/" target="_blank" rel="noopener noreferrer">URL Shortener</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/how-to-design-a-rate-limiter-api-learn-system-design/" target="_blank" rel="noopener noreferrer">Rate Limiter</a></div>
+          <div class="cp-row"><a href="https://www.techinterview.org/post/3233460015/design-a-distributed-key-value-store/" target="_blank" rel="noopener noreferrer">Key-Value Store</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-distributed-cache-system-design/" target="_blank" rel="noopener noreferrer">Distributed Cache</a></div>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Feed &amp; Social</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-facebook-system-design/" target="_blank" rel="noopener noreferrer">News Feed</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/interview-experiences/design-twitter-a-system-design-interview-question/" target="_blank" rel="noopener noreferrer">Twitter/X</a></div>
+          <div class="cp-row"><a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/instagram" target="_blank" rel="noopener noreferrer">Instagram</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-notification-services-system-design/" target="_blank" rel="noopener noreferrer">Notification System</a></div>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Real-time</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/designing-whatsapp-messenger-system-design/" target="_blank" rel="noopener noreferrer">Chat System</a></div>
+          <div class="cp-row"><a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/fb-live-comments" target="_blank" rel="noopener noreferrer">Live Comments</a></div>
+          <div class="cp-row"><a href="https://www.loremine.com/blogs/operational-transformation-algorithm-behind-google-docs" target="_blank" rel="noopener noreferrer">Collaborative Doc Editor</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/system-design-of-uber-app-uber-system-architecture/" target="_blank" rel="noopener noreferrer">Ride-Hailing Dispatch</a> <span class="co-tag uber">Uber</span></div>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Geo / Location</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://bytebytego.com/guides/proximity-service/" target="_blank" rel="noopener noreferrer">Proximity Service (Yelp-style)</a></div>
+          <div class="cp-row"><a href="https://medium.com/@Monika_Sharma1/uber-backend-system-design-explained-9ea6800777c7" target="_blank" rel="noopener noreferrer">Uber ETA / matching</a> <span class="co-tag uber">Uber</span></div>
+          <div class="cp-row"><a href="https://medium.com/@23bt04006/dijkstras-algorithm-in-gps-navigation-google-maps-finding-optimal-road-routes-0b5ca6df06e8" target="_blank" rel="noopener noreferrer">Google Maps-style routing</a></div>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Data-heavy</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/web-crawler" target="_blank" rel="noopener noreferrer">Web Crawler</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/centralized-logging-systems-system-design/" target="_blank" rel="noopener noreferrer">Log Aggregation / Analytics</a></div>
+          <div class="cp-row"><a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/ad-click-aggregator" target="_blank" rel="noopener noreferrer">Ad Click Aggregator</a></div>
+          <div class="cp-row"><a href="https://www.enjoyalgorithms.com/blog/design-typeahead-system/" target="_blank" rel="noopener noreferrer">Search Autocomplete</a></div>
+        </div>
+      </div>
+      <div class="company-card">
+        <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Financial</span></div>
+        <div class="company-problems">
+          <div class="cp-row"><a href="https://singhajit.com/payment-system-design/" target="_blank" rel="noopener noreferrer">Payment System</a> <span class="co-tag amazon">Amazon</span></div>
+          <div class="cp-row"><a href="https://dev.to/matt_frank_usa/designing-a-stock-exchange-order-matching-engine-759" target="_blank" rel="noopener noreferrer">Order Matching Engine</a></div>
+          <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/system-design-of-backend-for-expense-sharing-apps-like-splitwise/" target="_blank" rel="noopener noreferrer">Splitwise / Ledger</a></div>
+        </div>
+      </div>
+    </div>
+    <div class="company-note" style="border-radius: var(--radius-lg); margin-top: 1rem;">
+      <strong>Highest-leverage extra prep:</strong> a polished 5-minute walkthrough of a real production system you built — scale numbers, the hardest trade-off you made, and what you'd change with hindsight. This is the differentiator against candidates who've only ever designed textbook problems.
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Further reading</span>
+      <h2>Deep-dive resources by topic</h2>
+      <p>Once the framework and problem shapes above are solid, use these to go from "I can describe it" to "I can defend it under follow-up."</p>
+    </div>
+
+    <div class="java-resources" style="margin-top:0.5rem;">
       <h3>Further reading — system design fundamentals</h3>
       <div class="resource-cards-row">
         <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -399,27 +476,6 @@
           <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
         </a>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="container">
-    <div class="section-header">
-      <span class="section-eyebrow">Practice</span>
-      <h2>Problem set by category</h2>
-      <p>Do at least one from each category — interviewers pick problems that map to these shapes far more often than fully novel ones.</p>
-    </div>
-    <div class="companies-grid">
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Foundational</span></div><div class="company-problems"><div class="cp-row">URL Shortener</div><div class="cp-row">Rate Limiter</div><div class="cp-row">Key-Value Store</div><div class="cp-row">Distributed Cache</div></div></div>
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Feed &amp; Social</span></div><div class="company-problems"><div class="cp-row">News Feed</div><div class="cp-row">Twitter/X</div><div class="cp-row">Instagram</div><div class="cp-row">Notification System</div></div></div>
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Real-time</span></div><div class="company-problems"><div class="cp-row">Chat System</div><div class="cp-row">Live Comments</div><div class="cp-row">Collaborative Doc Editor</div><div class="cp-row">Ride-Hailing Dispatch <span class="co-tag uber">Uber</span></div></div></div>
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Geo / Location</span></div><div class="company-problems"><div class="cp-row">Proximity Service (Yelp-style)</div><div class="cp-row">Uber ETA / matching <span class="co-tag uber">Uber</span></div><div class="cp-row">Google Maps-style routing</div></div></div>
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Data-heavy</span></div><div class="company-problems"><div class="cp-row">Web Crawler</div><div class="cp-row">Log Aggregation / Analytics</div><div class="cp-row">Ad Click Aggregator</div><div class="cp-row">Search Autocomplete</div></div></div>
-      <div class="company-card"><div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Financial</span></div><div class="company-problems"><div class="cp-row">Payment System <span class="co-tag amazon">Amazon</span></div><div class="cp-row">Order Matching Engine</div><div class="cp-row">Splitwise / Ledger</div></div></div>
-    </div>
-    <div class="company-note" style="border-radius: var(--radius-lg); margin-top: 1rem;">
-      <strong>Highest-leverage extra prep:</strong> a polished 5-minute walkthrough of a real production system you built — scale numbers, the hardest trade-off you made, and what you'd change with hindsight. This is the differentiator against candidates who've only ever designed textbook problems.
     </div>
 
     <div class="java-resources" style="margin-top:2rem;">
