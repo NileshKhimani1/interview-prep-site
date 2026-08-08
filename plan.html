@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -67,7 +67,7 @@
     </div>
 
     <div class="timeline">
-      <div class="week-card">
+      <div class="week-card" id="plan-foundation-patterns">
         <div class="week-num-badge">Wk 1</div>
         <div class="week-content">
           <h4>Foundation patterns</h4>
@@ -75,7 +75,7 @@
           <div class="week-tags"><span>NeetCode 150</span><span>15 problems</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-binary-search-monotonic-stack">
         <div class="week-num-badge">Wk 2</div>
         <div class="week-content">
           <h4>Binary search + monotonic stack</h4>
@@ -83,7 +83,7 @@
           <div class="week-tags"><span>scalemind.dev</span><span>hellointerview.com</span><span>9 problems</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-trees-dfs-bfs-bst">
         <div class="week-num-badge">Wk 3</div>
         <div class="week-content">
           <h4>Trees — DFS / BFS / BST</h4>
@@ -91,7 +91,7 @@
           <div class="week-tags"><span>Striver A2Z Step 7</span><span>20 problems</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-graphs-heap">
         <div class="week-num-badge">Wk 4</div>
         <div class="week-content">
           <h4>Graphs + heap</h4>
@@ -99,7 +99,7 @@
           <div class="week-tags"><span>20 problems</span><span>Uber focus</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-dp-design-problems">
         <div class="week-num-badge">Wk 5</div>
         <div class="week-content">
           <h4>DP + design problems</h4>
@@ -107,7 +107,7 @@
           <div class="week-tags"><span>Amazon OA style</span><span>Timed</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-java-oop-depth">
         <div class="week-num-badge">Wk 6</div>
         <div class="week-content">
           <h4>Java + OOP depth</h4>
@@ -115,7 +115,7 @@
           <div class="week-tags"><span>Baeldung</span><span>Effective Java</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-spring-boot-resilience">
         <div class="week-num-badge">Wk 7</div>
         <div class="week-content">
           <h4>Spring Boot + resilience</h4>
@@ -123,7 +123,7 @@
           <div class="week-tags"><span>Apple focus</span><span>Verbal practice</span></div>
         </div>
       </div>
-      <div class="week-card">
+      <div class="week-card" id="plan-mock-interviews-company-drill">
         <div class="week-num-badge">Wk 8</div>
         <div class="week-content">
           <h4>Mock interviews + company drill</h4>
@@ -134,7 +134,7 @@
     </div>
 
     <!-- Resources grid -->
-    <div class="final-resources">
+    <div class="final-resources" id="plan-platform-resources">
       <h3>Platform resources</h3>
       <div class="final-res-grid">
         <a href="https://neetcode.io" target="_blank" class="final-res-card">
@@ -194,6 +194,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

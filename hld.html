@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -108,7 +108,7 @@
     </div>
 
     <div class="accordion-grid" style="margin-top:1.5rem;">
-      <div class="accordion">
+      <div class="accordion" id="hld-a-distributed-systems-theory">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>A — Distributed systems theory</span><span class="acc-icon">+</span>
         </button>
@@ -119,7 +119,7 @@
           <div class="q-item"><span class="q-num">•</span>Partitioning/sharding strategies, distributed transactions (2PC, Saga pattern).</div>
         </div>
       </div>
-      <div class="accordion">
+      <div class="accordion" id="hld-b-storage-data-infrastructure">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>B — Storage &amp; data infrastructure</span><span class="acc-icon">+</span>
         </button>
@@ -130,7 +130,7 @@
           <div class="q-item"><span class="q-num">•</span>Indexing/search (inverted index basics), time-series aggregation, geospatial indexing (geohash, quadtree).</div>
         </div>
       </div>
-      <div class="accordion">
+      <div class="accordion" id="hld-c-reliability-operations">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>C — Reliability &amp; operations</span><span class="acc-icon">+</span>
         </button>
@@ -153,7 +153,7 @@
       <p>Do at least one from each category — interviewers pick problems that map to these shapes far more often than fully novel ones. Every problem below links to a solid breakdown to read before you attempt it cold.</p>
     </div>
     <div class="companies-grid">
-      <div class="company-card">
+      <div class="company-card" id="hld-foundational">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Foundational</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/how-to-design-a-tiny-url-or-url-shortener/" target="_blank" rel="noopener noreferrer">URL Shortener</a></div>
@@ -162,7 +162,7 @@
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-distributed-cache-system-design/" target="_blank" rel="noopener noreferrer">Distributed Cache</a></div>
         </div>
       </div>
-      <div class="company-card">
+      <div class="company-card" id="hld-feed-social">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Feed &amp; Social</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-facebook-system-design/" target="_blank" rel="noopener noreferrer">News Feed</a></div>
@@ -171,7 +171,7 @@
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/design-notification-services-system-design/" target="_blank" rel="noopener noreferrer">Notification System</a></div>
         </div>
       </div>
-      <div class="company-card">
+      <div class="company-card" id="hld-real-time">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Real-time</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/designing-whatsapp-messenger-system-design/" target="_blank" rel="noopener noreferrer">Chat System</a></div>
@@ -180,7 +180,7 @@
           <div class="cp-row"><a href="https://www.geeksforgeeks.org/system-design/system-design-of-uber-app-uber-system-architecture/" target="_blank" rel="noopener noreferrer">Ride-Hailing Dispatch</a> <span class="co-tag uber">Uber</span></div>
         </div>
       </div>
-      <div class="company-card">
+      <div class="company-card" id="hld-geo-location">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Geo / Location</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://bytebytego.com/guides/proximity-service/" target="_blank" rel="noopener noreferrer">Proximity Service (Yelp-style)</a></div>
@@ -188,7 +188,7 @@
           <div class="cp-row"><a href="https://medium.com/@23bt04006/dijkstras-algorithm-in-gps-navigation-google-maps-finding-optimal-road-routes-0b5ca6df06e8" target="_blank" rel="noopener noreferrer">Google Maps-style routing</a></div>
         </div>
       </div>
-      <div class="company-card">
+      <div class="company-card" id="hld-data-heavy">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Data-heavy</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://www.hellointerview.com/learn/system-design/problem-breakdowns/web-crawler" target="_blank" rel="noopener noreferrer">Web Crawler</a></div>
@@ -197,7 +197,7 @@
           <div class="cp-row"><a href="https://www.enjoyalgorithms.com/blog/design-typeahead-system/" target="_blank" rel="noopener noreferrer">Search Autocomplete</a></div>
         </div>
       </div>
-      <div class="company-card">
+      <div class="company-card" id="hld-financial">
         <div class="company-pills" style="border-bottom:none;padding-top:1.25rem;"><span class="pill">Financial</span></div>
         <div class="company-problems">
           <div class="cp-row"><a href="https://singhajit.com/payment-system-design/" target="_blank" rel="noopener noreferrer">Payment System</a> <span class="co-tag amazon">Amazon</span></div>
@@ -220,7 +220,7 @@
       <p>Once the framework and problem shapes above are solid, use these to go from "I can describe it" to "I can defend it under follow-up."</p>
     </div>
 
-    <div class="java-resources" style="margin-top:0.5rem;">
+    <div class="java-resources" style="margin-top:0.5rem;" id="hld-further-reading-system-design-fundamentals">
       <h3>Further reading — system design fundamentals</h3>
       <div class="resource-cards-row">
         <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -262,7 +262,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-scalability-load-balancing">
       <h3>Further reading — scalability &amp; load balancing</h3>
       <div class="resource-cards-row">
         <a href="https://www.nginx.com/resources/glossary/load-balancing/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -286,7 +286,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-caching">
       <h3>Further reading — caching</h3>
       <div class="resource-cards-row">
         <a href="https://codeahoy.com/2017/08/11/caching-strategies-and-how-to-choose-the-right-one/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -316,7 +316,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-cap-theorem-consistency">
       <h3>Further reading — CAP theorem &amp; consistency</h3>
       <div class="resource-cards-row">
         <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -346,7 +346,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-sharding-consistent-hashing">
       <h3>Further reading — sharding &amp; consistent hashing</h3>
       <div class="resource-cards-row">
         <a href="https://arpitbhayani.me/blogs/consistent-hashing" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -370,7 +370,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-messaging-event-driven-architecture">
       <h3>Further reading — messaging &amp; event-driven architecture</h3>
       <div class="resource-cards-row">
         <a href="https://developer.confluent.io/courses/apache-kafka/events/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -406,7 +406,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-microservices-distributed-patterns">
       <h3>Further reading — microservices &amp; distributed patterns</h3>
       <div class="resource-cards-row">
         <a href="https://microservices.io/patterns/index.html" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -436,7 +436,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-observability">
       <h3>Further reading — observability</h3>
       <div class="resource-cards-row">
         <a href="https://opentelemetry.io/docs/concepts/observability-primer/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -460,7 +460,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-replication-consensus">
       <h3>Further reading — replication &amp; consensus</h3>
       <div class="resource-cards-row">
         <a href="https://raft.github.io/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -478,7 +478,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-best-hld-resources">
       <h3>Best HLD resources</h3>
       <div class="resource-cards-row">
         <a href="https://www.hellointerview.com/learn/system-design" target="_blank" class="res-card">
@@ -520,7 +520,7 @@
       <p style="font-size:12px;color:var(--text-muted);margin-top:1rem;">Also essential as books: <em>Designing Data-Intensive Applications</em> (Kleppmann) and <em>System Design Interview</em> Vol. 1/2 (Xu). Both are the print backbone most of the sites above summarize.</p>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-case-studies-engineering-blogs">
       <h3>Further reading — case studies &amp; engineering blogs</h3>
       <div class="resource-cards-row">
         <a href="https://eng.uber.com/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -556,7 +556,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="hld-further-reading-books-courses">
       <h3>Further reading — books &amp; courses</h3>
       <div class="resource-cards-row">
         <a href="https://www.oreilly.com/library/view/designing-data-intensive-applications/9781491903063/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -597,6 +597,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

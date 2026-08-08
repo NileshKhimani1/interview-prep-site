@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -62,7 +62,7 @@
 
     <div class="companies-grid">
 
-      <div class="company-card company-amazon">
+      <div class="company-card company-amazon" id="co-amazon">
         <div class="company-card-header">
           <div class="company-info">
             <h3>Amazon</h3>
@@ -91,7 +91,7 @@
         </div>
       </div>
 
-      <div class="company-card company-uber">
+      <div class="company-card company-uber" id="co-uber">
         <div class="company-card-header">
           <div class="company-info">
             <h3>Uber</h3>
@@ -120,7 +120,7 @@
         </div>
       </div>
 
-      <div class="company-card company-apple">
+      <div class="company-card company-apple" id="co-apple">
         <div class="company-card-header">
           <div class="company-info">
             <h3>Apple</h3>
@@ -150,7 +150,7 @@
 
     </div>
 
-    <div class="resources-strip">
+    <div class="resources-strip" id="co-company-tagged-problem-sources">
       <h3>Company-tagged problem sources</h3>
       <div class="resource-links-row">
         <a href="https://github.com/topics/uber-interview" target="_blank" class="resource-pill">GitHub: uber-interview tag →</a>
@@ -160,7 +160,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="co-2026-interview-experience-threads-per-company">
       <h3>2026 interview-experience threads (per company)</h3>
       <div class="resource-cards-row">
         <a href="https://leetcode.com/discuss/post/8420230/" target="_blank" class="res-card">
@@ -220,6 +220,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>
