@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Java + OOP Interview Bank — SDE-2 Interview Prep</title>
+<meta name="description" content="Core Java internals, OOP depth, concurrency, and Java 8+ features tested at SDE-2 level, with deep-dive resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html" class="active">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / Java + OOP</span>
+    <span class="section-eyebrow">Java + OOP</span>
+    <h1>Interview question bank</h1>
+    <p>Java internals and OOP depth are where SDE-2 loops separate candidates who write correct code from ones who understand what the JVM and collections are actually doing underneath. This bank covers the four areas that come up most often — core fundamentals, OOP + SOLID, concurrency, and Java 8+ — with deep-dive articles linked for the answers worth understanding beyond a one-line definition.</p>
+    <div class="header-meta">
+      <span>27 questions</span>
+      <span>4 topic areas</span>
+      <span>Concurrency + virtual-thread deep dives</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="accordion-grid">
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core Java fundamentals</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>What is the difference between <code>==</code> and <code>.equals()</code>? When must <code>.equals()</code> be overridden alongside <code>hashCode()</code>?</div>
+          <div class="q-item"><span class="q-num">Q2</span>Explain String immutability and the String Pool. What happens with <code>new String("x")</code> vs <code>"x"</code>?</div>
+          <div class="q-item"><span class="q-num">Q3</span>HashMap vs LinkedHashMap vs TreeMap — internal workings, time complexity, ordering guarantees.</div>
+          <div class="q-item"><span class="q-num">Q4</span>What happens when two keys have the same hashCode? How does HashMap handle collisions (treeification threshold at 8 nodes)?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Difference between fail-fast and fail-safe iterators. Give examples of each.</div>
+          <div class="q-item"><span class="q-num">Q6</span>How does ConcurrentHashMap differ from <code>Collections.synchronizedMap()</code>? Segment locking vs CAS.</div>
+          <div class="q-item"><span class="q-num">Q7</span>Autoboxing/unboxing pitfalls. When does <code>Integer.valueOf()</code> cache apply (−128 to 127)?</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>OOP — four pillars + SOLID</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>Compile-time polymorphism (overloading) vs runtime polymorphism (overriding). How does the JVM dispatch virtual methods?</div>
+          <div class="q-item"><span class="q-num">Q2</span>Abstract class vs interface. When would you choose each? How did Java 8 default methods change this? <span class="co-tag apple">Apple asked</span></div>
+          <div class="q-item"><span class="q-num">Q3</span>Comparator vs Comparable — when to use each. Implement both for a custom class. <span class="co-tag apple">Apple 2025</span></div>
+          <div class="q-item"><span class="q-num">Q4</span>How do you create an immutable class in Java? List all 5 requirements (final class, final fields, no setters, deep copy in constructor and getter). <span class="co-tag apple">Apple Round 4</span></div>
+          <div class="q-item"><span class="q-num">Q5</span>SOLID principles — code example for each. Focus depth on Open/Closed and Dependency Inversion.</div>
+          <div class="q-item"><span class="q-num">Q6</span>Factory, Strategy, Observer, Decorator patterns — when would each apply in a real backend service?</div>
+          <div class="q-item"><span class="q-num">Q7</span>Factory design pattern: abstract factory vs factory method distinction. <span class="co-tag apple">Apple asked</span></div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Concurrency & multithreading</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span><code>volatile</code> keyword — what memory visibility problem does it solve? When is it insufficient (check-then-act)?</div>
+          <div class="q-item"><span class="q-num">Q2</span><code>synchronized</code> vs <code>ReentrantLock</code> — differences, fairness policy, when to use each.</div>
+          <div class="q-item"><span class="q-num">Q3</span>What is a deadlock? How to detect it? Write a code example and show how to prevent it.</div>
+          <div class="q-item"><span class="q-num">Q4</span><code>ExecutorService</code> vs <code>ForkJoinPool</code>. When to use <code>CompletableFuture</code> vs <code>Future</code>?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Implement a thread-safe LRU cache in Java using <code>LinkedHashMap</code> + <code>ReadWriteLock</code>. <span class="co-tag apple">Apple classic</span></div>
+          <div class="q-item"><span class="q-num">Q6</span>Implement a concurrent job scheduler. <span class="co-tag uber">Uber machine coding</span></div>
+          <div class="q-item"><span class="q-num">Q7</span>Parallelism vs concurrency — explain with examples. <span class="co-tag apple">Apple CS fundamentals</span></div>
+          <div class="q-item"><span class="q-num">Q8</span>Virtual threads (Project Loom, Java 21) — how do they differ from platform threads? When to use in Spring Boot?</div>
+        </div>
+      </div>
+
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Java 8+ features</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">Q1</span>Lambda expressions — syntax, functional interfaces, method references. <span class="co-tag apple">Apple asked</span></div>
+          <div class="q-item"><span class="q-num">Q2</span>Stream API — map/filter/reduce/collect. How does lazy evaluation work? When does the terminal operation trigger execution?</div>
+          <div class="q-item"><span class="q-num">Q3</span>Optional — proper usage patterns. Common anti-patterns (<code>Optional.get()</code> without <code>isPresent()</code>).</div>
+          <div class="q-item"><span class="q-num">Q4</span>Default methods in interfaces — how does Java handle diamond problem?</div>
+          <div class="q-item"><span class="q-num">Q5</span>Record classes (Java 16+) and sealed classes (Java 17+) — how do they affect OOP design?</div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="java-resources">
+      <h3>Java resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://baeldung.com" target="_blank" class="res-card">
+          <span class="res-type">Free · Deep dives</span>
+          <span class="res-name">Baeldung.com</span>
+          <span class="res-desc">Best Java/Spring articles on the internet. ConcurrentHashMap internals, CompletableFuture, ThreadLocal, virtual threads.</span>
+        </a>
+        <a href="https://tpointtech.com" target="_blank" class="res-card">
+          <span class="res-type">Free · Quick review</span>
+          <span class="res-name">TpointTech (JavaTPoint)</span>
+          <span class="res-desc">300 Core Java interview questions. Good for rapid definition-level review the day before an interview.</span>
+        </a>
+        <div class="res-card">
+          <span class="res-type">Book · Essential</span>
+          <span class="res-name">Effective Java — Bloch</span>
+          <span class="res-desc">Items 10–13 (equals/hashCode), 15–17 (immutability), 68–84 (concurrency). Maps directly to SDE-2 interview depth.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Deep dives — concurrency &amp; internals (2026)</h3>
+      <div class="resource-cards-row">
+        <a href="https://codefarm0.medium.com/concurrenthashmap-deep-dive-internal-working-concurrency-model-how-it-differs-from-hashmap-bf150f6eabdd" target="_blank" class="res-card">
+          <span class="res-type">Free · Internals</span>
+          <span class="res-name">ConcurrentHashMap Deep Dive</span>
+          <span class="res-desc">Bucket-array + CAS internals, node-level locking, and exactly how it differs from a synchronized HashMap. Answers Q6 above in full.</span>
+        </a>
+        <a href="https://techoral.com/java/java-virtual-threads-deep-dive.html" target="_blank" class="res-card">
+          <span class="res-type">Free · Production notes</span>
+          <span class="res-name">Java Virtual Threads Deep Dive (2026)</span>
+          <span class="res-desc">Project Loom in production: carrier-thread multiplexing, unmounting on blocking I/O, and where virtual threads actually help.</span>
+        </a>
+        <a href="https://www.javacodegeeks.com/2026/04/virtual-threads-one-year-in-production-what-teams-got-wrong-and-what-actually-improved.html" target="_blank" class="res-card">
+          <span class="res-type">Free · Field report</span>
+          <span class="res-name">Virtual Threads: One Year in Production</span>
+          <span class="res-desc">What teams got wrong adopting Loom — pinning on synchronized blocks, thread-pool sizing mistakes — good follow-up talking points.</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

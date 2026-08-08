@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DSA with Patterns — SDE-2 Interview Prep</title>
+<meta name="description" content="25 core DSA patterns for SDE-2 interviews, each with curated LeetCode problems and deep-dive resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html" class="active">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / DSA</span>
+    <span class="section-eyebrow">DSA</span>
+    <h1>DSA with patterns</h1>
+    <p>Master the template, not just the problem — pattern recognition is what separates someone who's grinded 500 random problems from someone who's actually interview-ready. Each card below pairs curated LeetCode problems with 1–3 written deep-dives (and a visualizer or video where one exists), so you go from "I recognize this shape" to "I can explain why it works" in one pass.</p>
+    <div class="header-meta">
+      <span>25 patterns</span>
+      <span>60+ curated problems</span>
+      <span>50+ deep-dive links</span>
+      <span>Filterable by category ↓</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+
+    <div class="pattern-filter">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="foundation">Foundation</button>
+      <button class="filter-btn" data-filter="stack">Stack</button>
+      <button class="filter-btn" data-filter="tree">Trees</button>
+      <button class="filter-btn" data-filter="graph">Graphs</button>
+      <button class="filter-btn" data-filter="dp">DP</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <div class="patterns-grid" id="patterns-grid">
+
+      <!-- FOUNDATION -->
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Two pointers</h3>
+        <p class="pattern-desc">Opposite or same-direction pointers to achieve O(n) on sorted/array problems.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/" target="_blank">Two Sum II (LC 167)</a></li>
+          <li><a href="https://leetcode.com/problems/3sum/" target="_blank">3Sum (LC 15)</a></li>
+          <li><a href="https://leetcode.com/problems/container-with-most-water/" target="_blank">Container With Most Water (LC 11)</a></li>
+          <li><a href="https://leetcode.com/problems/trapping-rain-water/" target="_blank">Trapping Rain Water (LC 42) <span class="co-tag apple">Apple</span></a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/two-pointers-technique/" target="_blank">GeeksforGeeks — Two Pointers Technique →</a>
+            <span class="pr-desc">Reference for opposite-direction vs same-direction pointer templates, with the O(n²)→O(n) proof and when it's safe to skip pairs.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://algo.monster/problems/two_pointers_intro" target="_blank">AlgoMonster — Two Pointers Intro →</a>
+            <span class="pr-desc">Interactive walkthrough that turns the pattern into a runnable decision framework across several problem variants.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Sliding window</h3>
+        <p class="pattern-desc">Fixed or variable window over a sequence. Key: what enters and exits the window.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/longest-substring-without-repeating-characters/" target="_blank">Longest Substring W/O Repeat (LC 3)</a></li>
+          <li><a href="https://leetcode.com/problems/minimum-window-substring/" target="_blank">Minimum Window Substring (LC 76) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/sliding-window-maximum/" target="_blank">Sliding Window Maximum (LC 239) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/longest-repeating-character-replacement/" target="_blank">Longest Repeating Char Replace (LC 424)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://theskilledcoder.com/posts/dsa/sliding-window" target="_blank">The Skilled Coder — Sliding Window Deep Dive →</a>
+            <span class="pr-desc">Walks through why you keep one live window and update its running state instead of recomputing on every shift — fixed vs variable window mechanics.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/window-sliding-technique/" target="_blank">GeeksforGeeks — Window Sliding Technique →</a>
+            <span class="pr-desc">Canonical reference with the naive O(n·k) vs optimized O(n) comparison and code in five languages.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Prefix sum / hashing</h3>
+        <p class="pattern-desc">Precompute cumulative values or use HashMap for O(1) lookups.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/two-sum/" target="_blank">Two Sum (LC 1) <span class="co-tag amazon">All</span></a></li>
+          <li><a href="https://leetcode.com/problems/subarray-sum-equals-k/" target="_blank">Subarray Sum Equals K (LC 560)</a></li>
+          <li><a href="https://leetcode.com/problems/product-of-array-except-self/" target="_blank">Product of Array Except Self (LC 238) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/range-sum-query-immutable/" target="_blank">Range Sum Query (LC 303)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://leetcode.com/discuss/study-guide/1152742/Prefix-Sum-Array-Implementation-and-Applications" target="_blank">LeetCode Discuss — Prefix Sum Study Guide →</a>
+            <span class="pr-desc">The most-referenced community write-up: 1D/2D prefix sums, difference arrays, and when hashing beats a prefix array outright.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/prefix-sum-array-implementation-applications-problems/" target="_blank">GeeksforGeeks — Prefix Sum Array →</a>
+            <span class="pr-desc">Implementation reference plus an applications list (range queries, equilibrium index, running-total tricks).</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag foundation">Foundation</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Binary search</h3>
+        <p class="pattern-desc">Classic sorted-array search + binary search on the answer space.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/search-in-rotated-sorted-array/" target="_blank">Search in Rotated Array (LC 33)</a></li>
+          <li><a href="https://leetcode.com/problems/koko-eating-bananas/" target="_blank">Koko Eating Bananas (LC 875) — answer space</a></li>
+          <li><a href="https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/" target="_blank">Capacity to Ship Packages (LC 1011) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/median-of-two-sorted-arrays/" target="_blank">Median of Two Sorted Arrays (LC 4)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://leetcopilot.dev/blog/binary-search-on-answer-leetcode-beginners" target="_blank">LeetCopilot — Binary Search on Answer →</a>
+            <span class="pr-desc">Explains the monotonic-predicate framing (can(x) checks) that turns optimization problems into a search over a numeric range — the trick behind most "hard" binary search problems.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/binary-search/" target="_blank">GeeksforGeeks — Binary Search →</a>
+            <span class="pr-desc">Canonical reference for the classic sorted-array variant plus complexity proofs.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- STACK -->
+      <div class="pattern-card pattern-card--featured" data-category="stack">
+        <div class="card-header">
+          <span class="pattern-tag stack">Stack</span>
+          <span class="diff diff-hard">Hard-ish</span>
+        </div>
+        <h3>Monotonic stack <span class="featured-badge">⭐ Key pattern</span></h3>
+        <p class="pattern-desc">Push/pop only when the monotonic property breaks. Solves "next greater/smaller" in O(n).</p>
+        <div class="mono-template">
+          <span class="mono-label">Template</span>
+          <code>for each element:
+  while stack not empty AND stack.top() ≥ element:
+    pop → answer[popped_index] = element
+  push element</code>
+        </div>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/daily-temperatures/" target="_blank">Daily Temperatures (LC 739) — NGE template</a></li>
+          <li><a href="https://leetcode.com/problems/next-greater-element-ii/" target="_blank">Next Greater Element II — circular (LC 503)</a></li>
+          <li><a href="https://leetcode.com/problems/largest-rectangle-in-histogram/" target="_blank">Largest Rectangle in Histogram (LC 84) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/maximal-rectangle/" target="_blank">Maximal Rectangle (LC 85)</a></li>
+          <li><a href="https://leetcode.com/problems/sum-of-subarray-minimums/" target="_blank">Sum of Subarray Minimums (LC 907)</a></li>
+          <li><a href="https://leetcode.com/problems/online-stock-span/" target="_blank">Online Stock Span (LC 901)</a></li>
+          <li><a href="https://leetcode.com/problems/remove-k-digits/" target="_blank">Remove K Digits (LC 402)</a></li>
+          <li><a href="https://leetcode.com/problems/car-fleet/" target="_blank">Car Fleet (LC 853)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://scalemind.dev/dsa/java/monotonic-stack-pattern/" target="_blank">ScaleMind — Java Monotonic Stack Template →</a>
+            <span class="pr-desc">Java-first walkthrough of the push/pop invariant with annotated code for next-greater and next-smaller variants.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://hellointerview.com/learn/code/stack/monotonic-stack" target="_blank">Hello Interview — Monotonic Stack (Interactive) →</a>
+            <span class="pr-desc">Step-through visualizer showing exactly when elements get pushed vs popped — the best way to build intuition before drilling problems.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://algomaster.io/learn/dsa/monotonic-stack-introduction" target="_blank">AlgoMaster.io — Introduction to Monotonic Stack →</a>
+            <span class="pr-desc">Covers both increasing and decreasing stack variants and maps each to a family of LeetCode problems.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="stack">
+        <div class="card-header">
+          <span class="pattern-tag stack">Stack</span>
+          <span class="diff diff-easy">Easy–Med</span>
+        </div>
+        <h3>Stack — general</h3>
+        <p class="pattern-desc">Bracket matching, expression evaluation, decode/encode patterns.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/valid-parentheses/" target="_blank">Valid Parentheses (LC 20)</a></li>
+          <li><a href="https://leetcode.com/problems/min-stack/" target="_blank">Min Stack (LC 155)</a></li>
+          <li><a href="https://leetcode.com/problems/evaluate-reverse-polish-notation/" target="_blank">Evaluate Reverse Polish Notation (LC 150)</a></li>
+          <li><a href="https://leetcode.com/problems/decode-string/" target="_blank">Decode String (LC 394)</a></li>
+          <li><a href="https://leetcode.com/problems/basic-calculator-ii/" target="_blank">Basic Calculator II (LC 227)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/stack-data-structure/" target="_blank">GeeksforGeeks — Stack Data Structure →</a>
+            <span class="pr-desc">Ground-up reference for the ADT itself before layering on expression-evaluation and decode/encode variants.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- HEAP -->
+      <div class="pattern-card" data-category="foundation">
+        <div class="card-header">
+          <span class="pattern-tag heap">Heap</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Top-K / heap patterns</h3>
+        <p class="pattern-desc">Min-heap for top-K. Two heaps for median streaming. Priority queue for greedy scheduling.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/kth-largest-element-in-an-array/" target="_blank">Kth Largest Element (LC 215)</a></li>
+          <li><a href="https://leetcode.com/problems/k-closest-points-to-origin/" target="_blank">K Closest Points to Origin (LC 973) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/task-scheduler/" target="_blank">Task Scheduler (LC 621) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/find-median-from-data-stream/" target="_blank">Find Median from Data Stream (LC 295)</a></li>
+          <li><a href="https://leetcode.com/problems/merge-k-sorted-lists/" target="_blank">Merge K Sorted Lists (LC 23)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.abyiber.com/blog/patterns-top-k-heap" target="_blank">Top-K and Heap Patterns →</a>
+            <span class="pr-desc">Maintain a size-K min-heap and swap the root when a larger element arrives — the single idea behind almost every top-K problem.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://emre.me/coding-patterns/two-heaps/" target="_blank">Coding Patterns — Two Heaps →</a>
+            <span class="pr-desc">Max-heap for the smaller half, min-heap for the larger half — how to keep a running median in O(log n) insert / O(1) read.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- TREES -->
+      <div class="pattern-card" data-category="tree">
+        <div class="card-header">
+          <span class="pattern-tag tree">Tree</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>DFS — trees</h3>
+        <p class="pattern-desc">Recursive post-order for path/height problems. Pass down constraints, return up values.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/binary-tree-maximum-path-sum/" target="_blank">Binary Tree Max Path Sum (LC 124) <span class="co-tag apple">Apple</span></a></li>
+          <li><a href="https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/" target="_blank">Lowest Common Ancestor (LC 236)</a></li>
+          <li><a href="https://leetcode.com/problems/serialize-and-deserialize-binary-tree/" target="_blank">Serialize and Deserialize BT (LC 297)</a></li>
+          <li><a href="https://leetcode.com/problems/diameter-of-binary-tree/" target="_blank">Diameter of Binary Tree (LC 543)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.baeldung.com/java-binary-tree" target="_blank">Baeldung — Implementing a Binary Tree in Java →</a>
+            <span class="pr-desc">Java-first construction and recursive traversal reference — good grounding before path-sum/diameter problems that pass state down and return values up.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/tree-traversals-inorder-preorder-and-postorder/" target="_blank">GeeksforGeeks — Tree Traversals →</a>
+            <span class="pr-desc">In/pre/post-order side by side, with notes on which traversal each problem shape naturally wants.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="tree">
+        <div class="card-header">
+          <span class="pattern-tag tree">Tree</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>BFS — level order</h3>
+        <p class="pattern-desc">Queue-based level-by-level traversal. Right side view, zigzag, min depth.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/binary-tree-level-order-traversal/" target="_blank">Level Order Traversal (LC 102)</a></li>
+          <li><a href="https://leetcode.com/problems/binary-tree-right-side-view/" target="_blank">Right Side View (LC 199) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/" target="_blank">Zigzag Level Order (LC 103)</a></li>
+          <li><a href="https://leetcode.com/problems/n-ary-tree-level-order-traversal/" target="_blank">N-ary Tree Level Order (LC 429)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.baeldung.com/cs/level-order-traversal-binary-tree" target="_blank">Baeldung — Level-Order Traversal →</a>
+            <span class="pr-desc">The queue-per-level mechanics that right-side-view and zigzag problems both build on top of.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/level-order-tree-traversal/" target="_blank">GeeksforGeeks — Level Order Traversal (BFS) →</a>
+            <span class="pr-desc">Reference implementation plus the "process level-by-level using queue size as a boundary" trick.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GRAPHS -->
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Graph BFS / DFS</h3>
+        <p class="pattern-desc">Grid traversal, connected components, island counting, multi-source BFS.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/number-of-islands/" target="_blank">Number of Islands (LC 200) <span class="co-tag amazon">All</span></a></li>
+          <li><a href="https://leetcode.com/problems/pacific-atlantic-water-flow/" target="_blank">Pacific Atlantic Water Flow (LC 417)</a></li>
+          <li><a href="https://leetcode.com/problems/word-ladder/" target="_blank">Word Ladder (LC 127) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/rotting-oranges/" target="_blank">Rotting Oranges (LC 994)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.freecodecamp.org/news/graph-algorithms-in-python-bfs-dfs-and-beyond/" target="_blank">freeCodeCamp — Graph Algorithms: BFS, DFS, and Beyond →</a>
+            <span class="pr-desc">Conceptual grounding for traversal order and complexity before applying it to grids, islands, and multi-source BFS.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.shadecoder.com/blogs/graph-interview-questions-bfs-dfs-dijkstra-toposort-union-find" target="_blank">Shadecoder — Graph Interview Questions →</a>
+            <span class="pr-desc">Interview-framed guide covering when to reach for BFS vs DFS vs Dijkstra vs Union-Find on sight.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Topological sort</h3>
+        <p class="pattern-desc">Kahn's BFS algorithm for DAGs. Dependency resolution, course scheduling, alien dictionary.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/course-schedule/" target="_blank">Course Schedule I (LC 207) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/course-schedule-ii/" target="_blank">Course Schedule II (LC 210)</a></li>
+          <li><a href="https://leetcode.com/problems/alien-dictionary/" target="_blank">Alien Dictionary (LC 269) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/minimum-height-trees/" target="_blank">Minimum Height Trees (LC 310)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/topological-sorting/" target="_blank">GeeksforGeeks — Topological Sorting →</a>
+            <span class="pr-desc">Covers both DFS-based and Kahn's BFS-based approaches, plus the DAG-only precondition candidates often forget to state.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://dev.to/prashantrmishra/topological-sorting-in-graph-using-dfs-and-bfs-geeksforgeeks-28f2" target="_blank">DEV Community — Topological Sort Using DFS and BFS →</a>
+            <span class="pr-desc">Side-by-side implementation comparison to help you pick the right one to code live in an interview.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-hard">Med–Hard</span>
+        </div>
+        <h3>Union-Find (DSU)</h3>
+        <p class="pattern-desc">Path compression + union by rank. Dynamic connectivity, accounts merge, redundant edges.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/accounts-merge/" target="_blank">Accounts Merge (LC 721) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/redundant-connection/" target="_blank">Redundant Connection (LC 684)</a></li>
+          <li><a href="https://leetcode.com/problems/number-of-islands-ii/" target="_blank">Number of Islands II (LC 305) <span class="co-tag uber">Uber</span></a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://cp-algorithms.com/data_structures/disjoint_set_union.html" target="_blank">cp-algorithms — Disjoint Set Union →</a>
+            <span class="pr-desc">The competitive-programming-grade reference: path compression + union by rank derivation and near-O(1) amortized proof.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/union-find/" target="_blank">GeeksforGeeks — Introduction to Disjoint Set →</a>
+            <span class="pr-desc">Friendship-graph analogy plus Java/C++/Python implementations to translate straight into interview code.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="graph">
+        <div class="card-header">
+          <span class="pattern-tag graph">Graph</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>Shortest path (Dijkstra)</h3>
+        <p class="pattern-desc">Weighted graphs. Min-heap priority queue. Currency exchange, cheapest flights, network delay.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/cheapest-flights-within-k-stops/" target="_blank">Cheapest Flights K Stops (LC 787) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/network-delay-time/" target="_blank">Network Delay Time (LC 743)</a></li>
+          <li><a href="https://leetcode.com/problems/bus-routes/" target="_blank">Bus Routes (LC 815)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://cp-algorithms.com/graph/dijkstra.html" target="_blank">cp-algorithms — Dijkstra's Algorithm →</a>
+            <span class="pr-desc">Full derivation, path reconstruction via predecessor array, and the O(n log n + m) priority-queue optimization.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/dijkstras-shortest-path-algorithm-greedy-algo-7/" target="_blank">GeeksforGeeks — Dijkstra's Algorithm →</a>
+            <span class="pr-desc">Priority-queue implementation reference and a clear explanation of why negative edges break the greedy assumption.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DP -->
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag dp">DP</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>1D dynamic programming</h3>
+        <p class="pattern-desc">Optimal substructure + overlapping subproblems. Memoization → tabulation.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/house-robber/" target="_blank">House Robber I & II (LC 198, 213) <span class="co-tag amazon">Amazon</span></a></li>
+          <li><a href="https://leetcode.com/problems/longest-increasing-subsequence/" target="_blank">Longest Increasing Subsequence (LC 300)</a></li>
+          <li><a href="https://leetcode.com/problems/coin-change/" target="_blank">Coin Change (LC 322)</a></li>
+          <li><a href="https://leetcode.com/problems/word-break/" target="_blank">Word Break (LC 139) <span class="co-tag amazon">Amazon</span></a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://medium.com/@codegrey/dynamic-programming-simplified-the-5-patterns-you-actually-need-to-know-92b349ae80fd" target="_blank">Dynamic Programming Simplified — 5 Patterns →</a>
+            <span class="pr-desc">Reduces most 1D DP interview questions to five recurring shapes (knapsack, Fibonacci-style, LCS-style) so you pattern-match faster.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/dynamic-programming/" target="_blank">GeeksforGeeks — Dynamic Programming Hub →</a>
+            <span class="pr-desc">Full topic index — tabulation vs memoization, problem-solving steps, and a difficulty-graded problem list to drill.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag dp">DP</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>2D DP / DP on trees</h3>
+        <p class="pattern-desc">Grid DP, string matching, interval DP. DP on tree states (Uber SDE-2 pattern).</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/edit-distance/" target="_blank">Edit Distance (LC 72)</a></li>
+          <li><a href="https://leetcode.com/problems/longest-common-subsequence/" target="_blank">Longest Common Subsequence (LC 1143)</a></li>
+          <li><a href="https://leetcode.com/problems/regular-expression-matching/" target="_blank">Regular Expression Matching (LC 10)</a></li>
+          <li>DP on Trees — Optimal BST variant <span class="co-tag uber">Uber SDE-2</span></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://usaco.guide/gold/dp-trees" target="_blank">USACO Guide — DP on Trees →</a>
+            <span class="pr-desc">The resource that actually covers Uber's favorite variant: using subtrees as subproblems, tree matching, and rerooting.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/edit-distance-dp-5/" target="_blank">GeeksforGeeks — Edit Distance (2D DP) →</a>
+            <span class="pr-desc">Walks recursion → memoization → tabulation → space-optimized for the classic 2D grid-DP string problem.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="dp">
+        <div class="card-header">
+          <span class="pattern-tag stack">Intervals</span>
+          <span class="diff diff-med">Medium</span>
+        </div>
+        <h3>Interval problems</h3>
+        <p class="pattern-desc">Sort by start time. Greedy merge or min-heap for overlapping. Uber's most common pattern.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/merge-intervals/" target="_blank">Merge Intervals (LC 56) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/insert-interval/" target="_blank">Insert Interval (LC 57)</a></li>
+          <li><a href="https://leetcode.com/problems/meeting-rooms-ii/" target="_blank">Meeting Rooms II (LC 253) <span class="co-tag uber">Uber</span></a></li>
+          <li><a href="https://leetcode.com/problems/non-overlapping-intervals/" target="_blank">Non-overlapping Intervals (LC 435)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/merging-intervals/" target="_blank">GeeksforGeeks — Overlapping Intervals →</a>
+            <span class="pr-desc">Naive O(n²) vs sort-then-sweep O(n log n) merge, the backbone of every interval problem on this list.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.interviewbit.com/blog/merge-intervals/" target="_blank">InterviewBit — Merge Intervals →</a>
+            <span class="pr-desc">Interview-framed variant with meeting-room and insert-interval extensions worked through step by step.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DESIGN -->
+      <div class="pattern-card" data-category="design">
+        <div class="card-header">
+          <span class="pattern-tag design">Design</span>
+          <span class="diff diff-hard">Hard</span>
+        </div>
+        <h3>System design problems</h3>
+        <p class="pattern-desc">Linked list + HashMap combo (O(1) get/put). Thread-safety with ReadWriteLock for Apple.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/lru-cache/" target="_blank">LRU Cache (LC 146) <span class="co-tag apple">Apple</span></a></li>
+          <li><a href="https://leetcode.com/problems/lfu-cache/" target="_blank">LFU Cache (LC 460)</a></li>
+          <li><a href="https://leetcode.com/problems/design-twitter/" target="_blank">Design Twitter (LC 355)</a></li>
+          <li>Thread-safe LRU Cache <span class="co-tag apple">Apple focus</span></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.hellointerview.com/community/questions/lru-cache/cm5eh7nrh04r2838os7lk8nwf" target="_blank">Hello Interview — LRU Cache Deep Dive →</a>
+            <span class="pr-desc">Doubly linked list + HashMap combo explained with the exact interview framing and follow-up questions to expect.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://algo.monster/liteproblems/146" target="_blank">AlgoMonster — LC 146 In-Depth Explanation →</a>
+            <span class="pr-desc">Line-by-line breakdown of the O(1) get/put implementation — good prep before adding the thread-safety layer Apple asks for.</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pattern-card" data-category="design">
+        <div class="card-header">
+          <span class="pattern-tag design">Design</span>
+          <span class="diff diff-med">Med–Hard</span>
+        </div>
+        <h3>Trie + backtracking</h3>
+        <p class="pattern-desc">Trie for prefix search. Backtracking for exhaustive enumeration with pruning.</p>
+        <ul class="problem-list">
+          <li><a href="https://leetcode.com/problems/implement-trie-prefix-tree/" target="_blank">Implement Trie (LC 208)</a></li>
+          <li><a href="https://leetcode.com/problems/word-search-ii/" target="_blank">Word Search II (LC 212)</a></li>
+          <li><a href="https://leetcode.com/problems/permutations/" target="_blank">Permutations / Subsets (LC 46, 78)</a></li>
+          <li><a href="https://leetcode.com/problems/combination-sum/" target="_blank">Combination Sum (LC 39)</a></li>
+        </ul>
+        <div class="pattern-resources">
+          <span class="pr-label">Deep dives</span>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/trie-insert-and-search/" target="_blank">GeeksforGeeks — Trie Data Structure →</a>
+            <span class="pr-desc">Insert / search / prefix-search operations with the memory-vs-speed tradeoff explained — the structure behind Word Search II.</span>
+          </div>
+          <div class="pr-item">
+            <a href="https://www.geeksforgeeks.org/dsa/backtracking-algorithms/" target="_blank">GeeksforGeeks — Backtracking Algorithm →</a>
+            <span class="pr-desc">The "try, recurse, undo" template applied to permutations, subsets, and combination-sum-style pruning.</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>

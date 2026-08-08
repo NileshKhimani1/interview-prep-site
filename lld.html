@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LLD — Low-Level Design — SDE-2 Interview Prep</title>
+<meta name="description" content="Low-level design interview prep: OOP + SOLID foundations, design pattern tiers, 45-minute problem drills, and the best free LLD resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html" class="active">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / LLD</span>
+    <span class="section-eyebrow">Low-Level Design</span>
+    <h1>LLD — object-oriented design</h1>
+    <p>LLD tests something different from DSA: can you turn a fuzzy real-world requirement ("design a parking lot") into a clean, extensible class model in 45 minutes, using the right design pattern instead of the first one you remember? At staff/senior level, interviewers weight extensibility and SOLID discipline over cleverness — a design that survives three follow-up requirement changes beats one that's elegant but rigid. This page covers the foundations, the pattern catalog by priority tier, a drill set organized the way real loops sequence difficulty, and the free resources worth working through end to end.</p>
+    <div class="header-meta">
+      <span>22+ design patterns</span>
+      <span>30+ drill problems</span>
+      <span>4 curated resources</span>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Foundations</span>
+      <h2>Before the patterns</h2>
+      <p>Every LLD round starts by checking these are second nature — if they're not, no amount of pattern memorization will save the round.</p>
+    </div>
+
+    <div class="spring-grid">
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>OOP + SOLID</h3>
+          <span class="topic-badge">Prerequisite</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>The four pillars (encapsulation, abstraction, inheritance, polymorphism) — full question bank on the <a href="java.html">Java + OOP page</a>.</div>
+        <div class="q-item"><span class="q-num">•</span>SOLID as design pressure, not trivia: be ready to point at a specific class in your own design and say which principle it satisfies and why.</div>
+        <div class="q-item"><span class="q-num">•</span>Composition over inheritance — the default bias in almost every strong LLD answer.</div>
+        <div class="q-item"><span class="q-num">•</span>Interfaces as contracts: design to an interface first, then justify the concrete class.</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>UML you should be able to draw live</h3>
+          <span class="topic-badge">Communication</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Class diagrams — attributes, methods, visibility, and the four relationship arrows (association, aggregation, composition, inheritance).</div>
+        <div class="q-item"><span class="q-num">•</span>Sequence diagrams for the one or two critical flows (e.g. "what happens on checkout") — interviewers use these to check you've thought about interaction order, not just structure.</div>
+        <div class="q-item"><span class="q-num">•</span>State diagrams for anything with a lifecycle (order status, trip state, connection state).</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Concurrency in LLD</h3>
+          <span class="topic-badge topic-badge-uber">Apple · Uber</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Thread-safe singletons, double-checked locking, and when <code>enum</code> is the cleaner singleton.</div>
+        <div class="q-item"><span class="q-num">•</span>Where to put the lock: guard the state, not the method — a common mid-interview correction.</div>
+        <div class="q-item"><span class="q-num">•</span>Producer-consumer, bounded queues, connection pools — see the concurrency question bank on the <a href="java.html">Java page</a> for the primitives.</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>How the 45 minutes actually go</h3>
+          <span class="topic-badge">Format</span>
+        </div>
+        <div class="q-item"><span class="q-num">1</span>Clarify requirements and scope out loud (5 min) — nail down actors and core use cases before drawing anything.</div>
+        <div class="q-item"><span class="q-num">2</span>Identify core classes/entities and their relationships (10 min).</div>
+        <div class="q-item"><span class="q-num">3</span>Apply the design pattern that fits — justify it against at least one alternative (15 min).</div>
+        <div class="q-item"><span class="q-num">4</span>Code the critical path in working Java (10 min).</div>
+        <div class="q-item"><span class="q-num">5</span>Handle the interviewer's extension question without a redesign (5 min).</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Pattern catalog</span>
+      <h2>Design patterns by priority tier</h2>
+      <p>Learn Tier 1 cold — draw the UML from memory. Tier 2 you should recognize instantly and be able to sketch. Tier 3 is "I know it exists and when it'd apply."</p>
+    </div>
+
+    <div class="accordion-grid">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Tier 1 — automatic</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Strategy</strong> — swap an algorithm at runtime (payment methods, sorting strategies, pricing rules).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Observer</strong> — pub/sub between objects (notification systems, event listeners, stock tickers).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Factory / Abstract Factory</strong> — decouple object creation from usage; abstract factory when you need families of related objects.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>State</strong> — behavior changes with internal state (order lifecycle, traffic light, connection state machine).</div>
+        </div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Tier 2 — recognize instantly</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Singleton, Builder (director + fluent builder for complex object construction), Decorator (dynamic behavior wrapping — pizza toppings, coffee add-ons), Adapter (bridging incompatible interfaces).</div>
+          <div class="q-item"><span class="q-num">•</span>Command (undo/redo, queued operations), Chain of Responsibility (approval chains, middleware pipelines), Template Method (algorithm skeleton with overridable steps).</div>
+          <div class="q-item"><span class="q-num">•</span>Composite (tree structures — file systems, org charts), Proxy (lazy loading, access control), Facade (simplified interface over a complex subsystem), Iterator (custom traversal without exposing internals).</div>
+        </div>
+      </div>
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Tier 3 — know it exists</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span>Flyweight (share expensive immutable state — glyph rendering, game particle systems), Prototype (clone instead of construct), Mediator (centralize object-to-object chatter), Visitor (add operations without touching the class hierarchy), Bridge (decouple abstraction from implementation), Memento (undo via saved snapshots).</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">Practice</span>
+      <h2>45-minute problem drills, by difficulty</h2>
+      <p>Time-box every attempt to 45 minutes even in practice — that pressure is the actual skill being tested, not pattern recall.</p>
+    </div>
+
+    <div class="spring-grid">
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Set A — Foundational</h3>
+          <span class="topic-badge">Warm-up</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Parking Lot, Vending Machine, ATM, Tic-Tac-Toe, Library Management System.</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Set B — Core interview weight</h3>
+          <span class="topic-badge topic-badge-uber">Most common</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Elevator System, Rate Limiter, LRU/LFU Cache, Movie/Seat Booking System, Splitwise, Notification Service, Logging Framework, In-Memory KV Store with Transactions, File System.</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Set C — Senior / staff bar</h3>
+          <span class="topic-badge">Higher difficulty</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Circuit Breaker, Distributed Job Scheduler, Concurrent HashMap w/ getRandom, Order Matching Engine, Payment Gateway, Ride-Hailing System, Food Delivery System, Alert/Monitoring System, Transaction Fraud Filtering, Chess Engine, Auction System.</div>
+      </div>
+      <div class="spring-topic">
+        <div class="spring-topic-header">
+          <h3>Set D — Concurrency-heavy</h3>
+          <span class="topic-badge topic-badge-uber">Apple · Uber</span>
+        </div>
+        <div class="q-item"><span class="q-num">•</span>Bounded blocking queue, producer-consumer, thread-safe LRU, database connection pool, dining philosophers.</div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Best free LLD resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://algomaster.io/learn/lld" target="_blank" class="res-card">
+          <span class="res-type">Free · Full course</span>
+          <span class="res-name">AlgoMaster — Learn LLD</span>
+          <span class="res-desc">OOP → design principles → UML → 22 patterns → 33 interview problems (Tic-Tac-Toe through Spotify and Uber), most with Java solutions on GitHub. The most complete free LLD course available right now.</span>
+        </a>
+        <a href="https://github.com/ashishps1/awesome-low-level-design" target="_blank" class="res-card">
+          <span class="res-type">Free · 26k★ repo</span>
+          <span class="res-name">awesome-low-level-design (GitHub)</span>
+          <span class="res-desc">Curated problem list organized easy → hard, each with a working Java implementation. Good as a drill checklist once you've learned the patterns above.</span>
+        </a>
+        <a href="https://www.educative.io/courses/grokking-the-low-level-design-interview-using-ood-principles" target="_blank" class="res-card">
+          <span class="res-type">Paid · Structured</span>
+          <span class="res-name">Grokking the LLD Interview (Educative)</span>
+          <span class="res-desc">The original structured LLD course — OOD principles through a dozen fully-worked designs. Good if you want a syllabus rather than assembling your own.</span>
+        </a>
+        <a href="https://refactoring.guru/design-patterns" target="_blank" class="res-card">
+          <span class="res-type">Free · Reference</span>
+          <span class="res-name">Refactoring.Guru — Design Patterns</span>
+          <span class="res-desc">The best visual reference for all 22 GoF patterns — problem, solution, structure diagram, and pros/cons for each. Use this to look up a pattern fast mid-practice.</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
