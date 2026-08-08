@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -62,7 +62,7 @@
 
     <div class="accordion-grid">
 
-      <div class="accordion">
+      <div class="accordion" id="java-core-java-fundamentals">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Core Java fundamentals</span><span class="acc-icon">+</span>
         </button>
@@ -77,7 +77,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="java-oop-four-pillars-solid">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>OOP — four pillars + SOLID</span><span class="acc-icon">+</span>
         </button>
@@ -92,7 +92,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="java-concurrency-multithreading">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Concurrency & multithreading</span><span class="acc-icon">+</span>
         </button>
@@ -108,7 +108,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="java-java-8-features">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Java 8+ features</span><span class="acc-icon">+</span>
         </button>
@@ -123,7 +123,7 @@
 
     </div>
 
-    <div class="java-resources">
+    <div class="java-resources" id="java-java-resources">
       <h3>Java resources</h3>
       <div class="resource-cards-row">
         <a href="https://baeldung.com" target="_blank" class="res-card">
@@ -144,7 +144,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="java-deep-dives-concurrency-internals-2026">
       <h3>Deep dives — concurrency &amp; internals (2026)</h3>
       <div class="resource-cards-row">
         <a href="https://codefarm0.medium.com/concurrenthashmap-deep-dive-internal-working-concurrency-model-how-it-differs-from-hashmap-bf150f6eabdd" target="_blank" class="res-card">
@@ -165,7 +165,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="java-further-reading-java-core-concurrency">
       <h3>Further reading — Java core &amp; concurrency</h3>
       <div class="resource-cards-row">
         <a href="https://www.baeldung.com/java-collections-complexity" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -237,6 +237,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

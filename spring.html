@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -62,7 +62,7 @@
 
     <div class="spring-grid">
 
-      <div class="spring-topic">
+      <div class="spring-topic" id="spring-spring-boot-core">
         <div class="spring-topic-header">
           <h3>Spring Boot core</h3>
           <span class="topic-badge">All companies</span>
@@ -74,7 +74,7 @@
         <div class="q-item"><span class="q-num">Q5</span><code>@Transactional</code> propagation levels: REQUIRED, REQUIRES_NEW, NESTED. What happens with checked vs unchecked exceptions?</div>
       </div>
 
-      <div class="spring-topic">
+      <div class="spring-topic" id="spring-microservices-resilience">
         <div class="spring-topic-header">
           <h3>Microservices resilience</h3>
           <span class="topic-badge topic-badge-uber">Apple · Uber</span>
@@ -86,7 +86,7 @@
         <div class="q-item"><span class="q-num">Q5</span>Distributed tracing — correlation IDs, Micrometer Tracing, Zipkin/Jaeger.</div>
       </div>
 
-      <div class="spring-topic">
+      <div class="spring-topic" id="spring-data-persistence">
         <div class="spring-topic-header">
           <h3>Data / persistence</h3>
           <span class="topic-badge">Backend depth</span>
@@ -97,7 +97,7 @@
         <div class="q-item"><span class="q-num">Q4</span>Optimistic vs pessimistic locking with JPA <code>@Version</code>.</div>
       </div>
 
-      <div class="spring-topic">
+      <div class="spring-topic" id="spring-production-performance">
         <div class="spring-topic-header">
           <h3>Production / performance</h3>
           <span class="topic-badge">Senior bar</span>
@@ -110,7 +110,7 @@
 
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="spring-spring-boot-resources">
       <h3>Spring Boot resources</h3>
       <div class="resource-cards-row">
         <a href="https://baeldung.com/spring-boot" target="_blank" class="res-card">
@@ -131,7 +131,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="spring-resilience4j-deep-dives-the-question-apple-uber-both-ask">
       <h3>Resilience4j deep dives — the question Apple &amp; Uber both ask</h3>
       <div class="resource-cards-row">
         <a href="https://www.baeldung.com/spring-boot-resilience4j" target="_blank" class="res-card">
@@ -152,7 +152,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="spring-further-reading-spring-boot">
       <h3>Further reading — Spring Boot</h3>
       <div class="resource-cards-row">
         <a href="https://docs.spring.io/spring-framework/reference/core/beans.html" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -218,6 +218,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

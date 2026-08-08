@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -70,7 +70,7 @@
     </div>
 
     <div class="accordion-grid">
-      <div class="accordion">
+      <div class="accordion" id="dbms-core-dbms-topics">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Core DBMS topics</span><span class="acc-icon">+</span>
         </button>
@@ -85,7 +85,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:1.5rem;">
+    <div class="java-resources" style="margin-top:1.5rem;" id="dbms-best-dbms-resources">
       <h3>Best DBMS resources</h3>
       <div class="resource-cards-row">
         <a href="https://15445.courses.cs.cmu.edu/" target="_blank" class="res-card">
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-storage-engines-internals">
       <h3>Further reading — storage engines &amp; internals</h3>
       <div class="resource-cards-row">
         <a href="https://use-the-index-luke.com/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -142,7 +142,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-sql-vs-nosql">
       <h3>Further reading — SQL vs NoSQL</h3>
       <div class="resource-cards-row">
         <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -178,7 +178,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-indexing">
       <h3>Further reading — indexing</h3>
       <div class="resource-cards-row">
         <a href="https://use-the-index-luke.com/sql/anatomy" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -220,7 +220,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-query-internals">
       <h3>Further reading — query internals</h3>
       <div class="resource-cards-row">
         <a href="https://www.interdb.jp/pg/pgsql03.html" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -250,7 +250,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-nosql-mongodb-dynamodb-cassandra">
       <h3>Further reading — NoSQL (MongoDB, DynamoDB, Cassandra)</h3>
       <div class="resource-cards-row">
         <a href="https://www.mongodb.com/docs/manual/data-modeling/" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -304,7 +304,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-search-elasticsearch-solr">
       <h3>Further reading — search (Elasticsearch &amp; Solr)</h3>
       <div class="resource-cards-row">
         <a href="https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -328,7 +328,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="dbms-further-reading-transactions-distributed-transactions">
       <h3>Further reading — transactions &amp; distributed transactions</h3>
       <div class="resource-cards-row">
         <a href="https://www.postgresql.org/docs/current/mvcc-intro.html" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -381,6 +381,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

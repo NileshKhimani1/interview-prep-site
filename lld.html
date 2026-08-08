@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -66,7 +66,7 @@
     </div>
 
     <div class="spring-grid">
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-oop-solid">
         <div class="spring-topic-header">
           <h3>OOP + SOLID</h3>
           <span class="topic-badge">Prerequisite</span>
@@ -76,7 +76,7 @@
         <div class="q-item"><span class="q-num">•</span>Composition over inheritance — the default bias in almost every strong LLD answer.</div>
         <div class="q-item"><span class="q-num">•</span>Interfaces as contracts: design to an interface first, then justify the concrete class.</div>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-uml-you-should-be-able-to-draw-live">
         <div class="spring-topic-header">
           <h3>UML you should be able to draw live</h3>
           <span class="topic-badge">Communication</span>
@@ -85,7 +85,7 @@
         <div class="q-item"><span class="q-num">•</span>Sequence diagrams for the one or two critical flows (e.g. "what happens on checkout") — interviewers use these to check you've thought about interaction order, not just structure.</div>
         <div class="q-item"><span class="q-num">•</span>State diagrams for anything with a lifecycle (order status, trip state, connection state).</div>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-concurrency-in-lld">
         <div class="spring-topic-header">
           <h3>Concurrency in LLD</h3>
           <span class="topic-badge topic-badge-uber">Apple · Uber</span>
@@ -94,7 +94,7 @@
         <div class="q-item"><span class="q-num">•</span>Where to put the lock: guard the state, not the method — a common mid-interview correction.</div>
         <div class="q-item"><span class="q-num">•</span>Producer-consumer, bounded queues, connection pools — see the concurrency question bank on the <a href="java.html">Java page</a> for the primitives.</div>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-how-the-45-minutes-actually-go">
         <div class="spring-topic-header">
           <h3>How the 45 minutes actually go</h3>
           <span class="topic-badge">Format</span>
@@ -107,7 +107,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-solid-principles">
       <h3>Further reading — SOLID principles</h3>
       <div class="resource-cards-row">
         <a href="https://www.digitalocean.com/community/conceptual_articles/s-o-l-i-d-the-first-five-principles-of-object-oriented-design" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -142,7 +142,7 @@
     </div>
 
     <div class="accordion-grid">
-      <div class="accordion">
+      <div class="accordion" id="lld-tier-1-automatic">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Tier 1 — automatic</span><span class="acc-icon">+</span>
         </button>
@@ -153,7 +153,7 @@
           <div class="q-item"><span class="q-num">•</span><strong>State</strong> — behavior changes with internal state (order lifecycle, traffic light, connection state machine).</div>
         </div>
       </div>
-      <div class="accordion">
+      <div class="accordion" id="lld-tier-2-recognize-instantly">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Tier 2 — recognize instantly</span><span class="acc-icon">+</span>
         </button>
@@ -163,7 +163,7 @@
           <div class="q-item"><span class="q-num">•</span>Composite (tree structures — file systems, org charts), Proxy (lazy loading, access control), Facade (simplified interface over a complex subsystem), Iterator (custom traversal without exposing internals).</div>
         </div>
       </div>
-      <div class="accordion">
+      <div class="accordion" id="lld-tier-3-know-it-exists">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Tier 3 — know it exists</span><span class="acc-icon">+</span>
         </button>
@@ -173,7 +173,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-creational-patterns">
       <h3>Further reading — creational patterns</h3>
       <div class="resource-cards-row">
         <a href="https://refactoring.guru/design-patterns/creational-patterns" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -209,7 +209,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-structural-patterns">
       <h3>Further reading — structural patterns</h3>
       <div class="resource-cards-row">
         <a href="https://refactoring.guru/design-patterns/structural-patterns" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -245,7 +245,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-behavioral-patterns-highest-machine-coding-frequen">
       <h3>Further reading — behavioral patterns (highest machine coding frequency)</h3>
       <div class="resource-cards-row">
         <a href="https://refactoring.guru/design-patterns/behavioral-patterns" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -298,7 +298,7 @@
     </div>
 
     <div class="spring-grid">
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-set-a-foundational">
         <div class="spring-topic-header">
           <h3>Set A — Foundational</h3>
           <span class="topic-badge">Warm-up</span>
@@ -311,7 +311,7 @@
           <li><a href="https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/library-management-system.md" target="_blank" rel="noopener noreferrer">Library Management System</a></li>
         </ul>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-set-b-core-interview-weight">
         <div class="spring-topic-header">
           <h3>Set B — Core interview weight</h3>
           <span class="topic-badge topic-badge-uber">Most common</span>
@@ -328,7 +328,7 @@
           <li><a href="https://www.geeksforgeeks.org/system-design/design-data-structures-algorithms-memory-file-system/" target="_blank" rel="noopener noreferrer">File System</a></li>
         </ul>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-set-c-senior-staff-bar">
         <div class="spring-topic-header">
           <h3>Set C — Senior / staff bar</h3>
           <span class="topic-badge">Higher difficulty</span>
@@ -347,7 +347,7 @@
           <li><a href="https://github.com/ashishps1/awesome-low-level-design/blob/main/problems/online-auction-system.md" target="_blank" rel="noopener noreferrer">Auction System</a></li>
         </ul>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="lld-set-d-concurrency-heavy">
         <div class="spring-topic-header">
           <h3>Set D — Concurrency-heavy</h3>
           <span class="topic-badge topic-badge-uber">Apple · Uber</span>
@@ -362,7 +362,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-best-free-lld-resources">
       <h3>Best free LLD resources</h3>
       <div class="resource-cards-row">
         <a href="https://algomaster.io/learn/lld" target="_blank" class="res-card">
@@ -388,7 +388,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-machine-coding-practice">
       <h3>Further reading — machine coding practice</h3>
       <div class="resource-cards-row">
         <a href="https://github.com/prasadgujar/low-level-design-primer/blob/master/solutions.md" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -418,7 +418,7 @@
       </div>
     </div>
 
-    <div class="java-resources" style="margin-top:2rem;">
+    <div class="java-resources" style="margin-top:2rem;" id="lld-further-reading-concurrency-in-lld">
       <h3>Further reading — concurrency in LLD</h3>
       <div class="resource-cards-row">
         <a href="https://www.baeldung.com/java-blocking-queue" target="_blank" rel="noopener noreferrer" class="res-card">
@@ -465,6 +465,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>

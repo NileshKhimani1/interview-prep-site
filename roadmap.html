@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 <script>
 (function () {
   var t = localStorage.getItem('theme');
@@ -62,7 +62,7 @@
   <div class="container">
 
     <div class="spring-grid" style="margin-bottom:2rem;">
-      <div class="spring-topic">
+      <div class="spring-topic" id="roadmap-existing-strengths">
         <div class="spring-topic-header">
           <h3>Existing strengths</h3>
           <span class="topic-badge">Calibration</span>
@@ -73,7 +73,7 @@
         <div class="q-item"><span class="q-num">•</span>Low-latency design experience</div>
         <div class="q-item"><span class="q-num">•</span>Security / ops depth — secrets management, K8s, observability tooling</div>
       </div>
-      <div class="spring-topic">
+      <div class="spring-topic" id="roadmap-five-gaps-to-close">
         <div class="spring-topic-header">
           <h3>Five gaps to close</h3>
           <span class="topic-badge topic-badge-uber">Focus areas</span>
@@ -147,7 +147,7 @@
 
     <div class="accordion-grid">
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-track-a-dsa-by-patterns">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Track A — DSA by patterns</span><span class="acc-icon">+</span>
         </button>
@@ -162,7 +162,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-track-b-lld-java">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Track B — LLD (Java)</span><span class="acc-icon">+</span>
         </button>
@@ -177,7 +177,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-track-c-hld">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Track C — HLD</span><span class="acc-icon">+</span>
         </button>
@@ -194,7 +194,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-track-d-cs-fundamentals">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Track D — CS fundamentals</span><span class="acc-icon">+</span>
         </button>
@@ -206,7 +206,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-track-e-behavioral-prep">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Track E — Behavioral prep</span><span class="acc-icon">+</span>
         </button>
@@ -217,7 +217,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-company-playbooks">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Company playbooks</span><span class="acc-icon">+</span>
         </button>
@@ -228,7 +228,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-applications-mocks-resume">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Applications, mocks &amp; resume</span><span class="acc-icon">+</span>
         </button>
@@ -239,7 +239,7 @@
         </div>
       </div>
 
-      <div class="accordion">
+      <div class="accordion" id="roadmap-checklists-compressed-8-week-plan">
         <button class="accordion-header" onclick="toggleAccordion(this)">
           <span>Checklists &amp; compressed 8-week plan</span><span class="acc-icon">+</span>
         </button>
@@ -281,6 +281,7 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="search-data.js?v=2"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
