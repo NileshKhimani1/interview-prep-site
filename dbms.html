@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DBMS — Database Management Systems — SDE-2 Interview Prep</title>
+<meta name="description" content="DBMS for SDE-2 interviews: indexing, storage engines, transactions, SQL vs NoSQL, query internals, and NoSQL databases (MongoDB, DynamoDB, Cassandra) with curated resources.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>
+(function () {
+  var t = localStorage.getItem('theme');
+  if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+  document.documentElement.setAttribute('data-theme', t);
+})();
+</script>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">prep<span class="logo-accent">.</span>dev</a>
+    <div class="nav-links">
+      <a href="patterns.html">DSA</a>
+      <a href="lld.html">LLD</a>
+      <a href="hld.html">HLD</a>
+      <a href="fundamentals.html" class="active">Fundamentals</a>
+      <a href="companies.html">Companies</a>
+      <a href="java.html">Java</a>
+      <a href="spring.html">Spring</a>
+      <a href="roadmap.html">Roadmap</a>
+    </div>
+    <div class="nav-right">
+      <button class="theme-toggle" aria-label="Toggle light/dark theme">
+        <span class="theme-toggle-knob"></span>
+      </button>
+      <button class="nav-toggle" aria-label="Toggle menu">☰</button>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HEADER -->
+<header class="page-header">
+  <div class="container">
+    <span class="breadcrumb"><a href="index.html">Home</a> / <a href="fundamentals.html">Fundamentals</a> / DBMS</span>
+    <span class="section-eyebrow">CS Fundamentals · 01</span>
+    <h1>DBMS — Database Management Systems</h1>
+    <p>The subject most likely to show up disguised as an HLD deep dive ("why did you pick this index?") rather than as its own round. The bar isn't textbook recall — it's being able to explain <em>why</em> an index speeds up a query, in your own words, under follow-up pressure.</p>
+    <div class="header-meta">
+      <span>7 subtopics</span>
+      <span>35+ curated resources</span>
+    </div>
+    <div class="pattern-filter" style="margin-top:1.25rem;">
+      <a href="dbms.html" class="filter-btn active">DBMS</a>
+      <a href="os.html" class="filter-btn">Operating Systems</a>
+      <a href="networking.html" class="filter-btn">Networking</a>
+    </div>
+  </div>
+</header>
+
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-eyebrow">01 — DBMS</span>
+      <h2>Database Management Systems</h2>
+      <p>The subject most likely to show up disguised as an HLD deep dive ("why did you pick this index?") rather than as its own round.</p>
+    </div>
+
+    <div class="accordion-grid">
+      <div class="accordion">
+        <button class="accordion-header" onclick="toggleAccordion(this)">
+          <span>Core DBMS topics</span><span class="acc-icon">+</span>
+        </button>
+        <div class="accordion-body">
+          <div class="q-item"><span class="q-num">•</span><strong>Normalization:</strong> 1NF → BCNF — and, just as important, when to deliberately denormalize for read performance.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Indexing:</strong> B-tree vs hash index, clustered vs non-clustered, composite index column order, covering indexes — and why an index can make writes slower.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Transactions:</strong> ACID properties, isolation levels (Read Uncommitted → Serializable) and which anomalies each one prevents (dirty read, non-repeatable read, phantom read).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Concurrency control:</strong> optimistic vs pessimistic locking, MVCC (how Postgres/MySQL InnoDB actually implement it).</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Joins &amp; query execution:</strong> nested loop vs hash vs merge join, and reading an <code>EXPLAIN</code> plan.</div>
+          <div class="q-item"><span class="q-num">•</span><strong>Storage engines:</strong> B-tree (Postgres/InnoDB) vs LSM-tree (Cassandra/RocksDB) — write-amplification vs read-amplification trade-offs, covered in more depth on the <a href="hld.html">HLD page</a>.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:1.5rem;">
+      <h3>Best DBMS resources</h3>
+      <div class="resource-cards-row">
+        <a href="https://15445.courses.cs.cmu.edu/" target="_blank" class="res-card">
+          <span class="res-type">Free · Grad course</span>
+          <span class="res-name">CMU 15-445 — Intro to Database Systems</span>
+          <span class="res-desc">Andy Pavlo's course, free on YouTube: storage models, indexing, query execution, concurrency control, and recovery — staff-level depth, not interview trivia.</span>
+        </a>
+        <a href="https://use-the-index-luke.com/" target="_blank" class="res-card">
+          <span class="res-type">Free · Deep dive</span>
+          <span class="res-name">Use The Index, Luke</span>
+          <span class="res-desc">The canonical explainer for how indexes actually work and why a query is slow — vendor-agnostic across Postgres, MySQL, Oracle, SQL Server.</span>
+        </a>
+        <a href="https://www.interviewbit.com/dbms-interview-questions/" target="_blank" class="res-card">
+          <span class="res-type">Free · Q&amp;A bank</span>
+          <span class="res-name">InterviewBit — DBMS Interview Questions</span>
+          <span class="res-desc">75+ question definition-level review — good for the night-before pass after you've done the CMU course once.</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — storage engines &amp; internals</h3>
+      <div class="resource-cards-row">
+        <a href="https://use-the-index-luke.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Free Book</span>
+          <span class="res-name">Use The Index, Luke</span>
+          <span class="res-desc">The definitive free book on SQL indexing, execution plans, and query performance. Bookmark permanently.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span><span class="pill">free-book</span></div>
+        </a>
+        <a href="https://architecturenotes.co/things-you-should-know-about-databases/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Things You Should Know About Databases</span>
+          <span class="res-desc">Architecture Notes deep dive: storage engines, WAL, B-trees, MVCC, replication. Best single SDE-2 DB read.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span><span class="pill">article</span></div>
+        </a>
+        <a href="https://15445.courses.cs.cmu.edu/fall2023/notes/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Free Course</span>
+          <span class="res-name">CMU 15-445 — Lecture Notes</span>
+          <span class="res-desc">Free CMU graduate DB course lecture notes: storage models, buffer pool, B+ trees, concurrency control.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">free-course</span><span class="pill">deep-dive</span></div>
+        </a>
+        <a href="https://www.interdb.jp/pg/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Free Book</span>
+          <span class="res-name">The Internals of PostgreSQL</span>
+          <span class="res-desc">Full free book on PostgreSQL internals: heap files, indexes, MVCC, WAL, query processing.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">free-book</span><span class="pill">deep-dive</span></div>
+        </a>
+        <a href="https://brandur.org/acid" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Brandur — ACID</span>
+          <span class="res-desc">Deep dive on ACID with concrete examples of how real databases achieve each property.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — SQL vs NoSQL</h3>
+      <div class="resource-cards-row">
+        <a href="https://newsletter.systemdesign.one/p/system-design-concepts" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">114 Concepts Part 1 — Databases &amp; SQL vs NoSQL</span>
+          <span class="res-desc">Neo Kim's items 6–7: Databases and SQL vs NoSQL with analogies and tradeoffs.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span><span class="pill">article</span></div>
+        </a>
+        <a href="https://www.cockroachlabs.com/blog/sql-vs-nosql/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">CockroachDB — SQL vs NoSQL</span>
+          <span class="res-desc">Unbiased deep comparison: consistency models, horizontal scaling, modern NewSQL.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
+        </a>
+        <a href="https://fauna.com/blog/introduction-to-transaction-isolation-levels" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Introduction to Transaction Isolation Levels</span>
+          <span class="res-desc">All 4 isolation levels with concurrent transaction examples. Know which anomaly each level prevents.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">interview-key</span><span class="pill">article</span></div>
+        </a>
+        <a href="https://dl.acm.org/doi/10.1145/1394127.1394128" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Paper</span>
+          <span class="res-name">BASE: An Acid Alternative (Pritchett)</span>
+          <span class="res-desc">The original ACM paper by Dan Pritchett coining BASE. Short and foundational.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">paper</span></div>
+        </a>
+        <a href="https://jepsen.io/analyses" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Deep Dive</span>
+          <span class="res-name">Jepsen — Analyses</span>
+          <span class="res-desc">Real-world DB consistency failure analyses. How MongoDB, Cassandra, Redis fail under partition.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">advanced</span><span class="pill">deep-dive</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — indexing</h3>
+      <div class="resource-cards-row">
+        <a href="https://use-the-index-luke.com/sql/anatomy" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Visual</span>
+          <span class="res-name">Anatomy of an Index</span>
+          <span class="res-desc">B-tree structure, leaf nodes, doubly-linked lists, traversal. Best visual explanation of SQL indexes.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span><span class="pill">visual</span></div>
+        </a>
+        <a href="https://www.cs.usfca.edu/~galles/visualization/BPlusTree.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Interactive</span>
+          <span class="res-name">B+ Tree Visualization</span>
+          <span class="res-desc">Interactive B+ tree animation: insert, delete, search. Use this before every interview.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">interactive</span><span class="pill">must-read</span></div>
+        </a>
+        <a href="https://use-the-index-luke.com/sql/clustering/index-organized-clustered-index" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Clustered Indexes</span>
+          <span class="res-desc">Why InnoDB uses a clustered primary key and how secondary indexes point to the PK.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">interview-key</span></div>
+        </a>
+        <a href="https://use-the-index-luke.com/sql/where-clause/the-equals-operator/concatenated-keys" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Concatenated Keys</span>
+          <span class="res-desc">Leftmost prefix rule: why (a,b,c) answers (a), (a,b), (a,b,c) but NOT (b) alone.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">interview-key</span></div>
+        </a>
+        <a href="https://use-the-index-luke.com/sql/clustering/covering-indexes" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Covering Indexes</span>
+          <span class="res-desc">Covering indexes: avoid table heap access entirely. Highest-impact single query optimization.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
+        </a>
+        <a href="https://www.cs.ubc.ca/~rap/teaching/504/2006/slides/lsm.pdf" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Paper</span>
+          <span class="res-name">The Log-Structured Merge-Tree (LSM-Tree)</span>
+          <span class="res-desc">The original LSM Tree paper. Foundational for Cassandra, RocksDB, LevelDB.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">paper</span><span class="pill">deep-dive</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — query internals</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.interdb.jp/pg/pgsql03.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Free Book</span>
+          <span class="res-name">Query Processing (Internals of PostgreSQL)</span>
+          <span class="res-desc">PostgreSQL query lifecycle: parser → rewriter → planner → executor. Diagrams included.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">free-book</span><span class="pill">deep-dive</span></div>
+        </a>
+        <a href="https://use-the-index-luke.com/sql/join" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">The Join Operation</span>
+          <span class="res-desc">Nested loop join, hash join, merge join — when each is chosen and why.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span><span class="pill">interview-key</span></div>
+        </a>
+        <a href="https://explains.dalibo.com/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Tool</span>
+          <span class="res-name">Dalibo — explain.dalibo.com</span>
+          <span class="res-desc">Paste PostgreSQL EXPLAIN ANALYZE output and get a visual tree. Essential for understanding query plans.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">tool</span></div>
+        </a>
+        <a href="https://dataschool.com/sql-optimization/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">SQL Optimization</span>
+          <span class="res-desc">Visual guide to avoiding full table scans and optimizing WHERE clauses.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span><span class="pill">practical</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — NoSQL (MongoDB, DynamoDB, Cassandra)</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.mongodb.com/docs/manual/data-modeling/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">MongoDB — Data Modeling</span>
+          <span class="res-desc">Official MongoDB data modeling: embedding vs referencing, schema patterns.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://www.mongodb.com/docs/manual/sharding/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">MongoDB — Sharding</span>
+          <span class="res-desc">MongoDB sharding: shard keys, balancers, chunk migration.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://www.alexdebrie.com/posts/dynamodb-single-table/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">The DynamoDB Book — Single-Table Design</span>
+          <span class="res-desc">The definitive guide to DynamoDB's access-pattern-first design. Why DynamoDB is different from every other DB.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span></div>
+        </a>
+        <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">DynamoDB — How It Works</span>
+          <span class="res-desc">Partition keys, sort keys, GSIs, LSIs, RCU/WCU. Complete DynamoDB mental model.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://www.youtube.com/watch?v=HaEPXoXVf2k" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Video</span>
+          <span class="res-name">Rick Houlihan — Advanced DynamoDB Data Modeling</span>
+          <span class="res-desc">Rick Houlihan's legendary AWS re:Invent DynamoDB data modeling talk. 65 minutes, fundamentally changes how you think about NoSQL.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">video</span><span class="pill">must-read</span></div>
+        </a>
+        <a href="https://cassandra.apache.org/doc/latest/cassandra/architecture/overview.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">Apache Cassandra — Architecture</span>
+          <span class="res-desc">Cassandra ring topology, gossip protocol, replication strategies. Why Cassandra is AP in CAP.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://www.instaclustr.com/blog/cassandra-data-modeling/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Instaclustr — Cassandra Data Modeling</span>
+          <span class="res-desc">Cassandra query-driven data modeling: partition keys, clustering columns, denormalization.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
+        </a>
+        <a href="https://www.datastax.com/blog/cassandra-anti-patterns-queues-and-queue-like-datasets" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Cassandra Anti-Patterns — Queues</span>
+          <span class="res-desc">What NOT to do in Cassandra: queues, tombstone hell. Real production failures.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">advanced</span><span class="pill">anti-patterns</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — search (Elasticsearch &amp; Solr)</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Deep Dive</span>
+          <span class="res-name">Elasticsearch from the Bottom Up</span>
+          <span class="res-desc">Lucene and ES internals: inverted index, segments, merging, real-time search. Best technical deep-dive.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">must-read</span><span class="pill">deep-dive</span></div>
+        </a>
+        <a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/scalability.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">Elasticsearch — Scalability</span>
+          <span class="res-desc">ES shards, replicas, node roles, cluster topology. Design an ES cluster for production.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://sematext.com/blog/solr-vs-elasticsearch-differences/" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Solr vs Elasticsearch</span>
+          <span class="res-desc">Solr vs Elasticsearch: mature faceting and analytics vs near-real-time indexing.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">comparison</span></div>
+        </a>
+      </div>
+    </div>
+
+    <div class="java-resources" style="margin-top:2rem;">
+      <h3>Further reading — transactions &amp; distributed transactions</h3>
+      <div class="resource-cards-row">
+        <a href="https://www.postgresql.org/docs/current/mvcc-intro.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">PostgreSQL — MVCC</span>
+          <span class="res-desc">MVCC in PostgreSQL: how readers don't block writers. Snapshots, transaction IDs, vacuum.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span></div>
+        </a>
+        <a href="https://www.postgresql.org/docs/current/transaction-iso.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Official Docs</span>
+          <span class="res-name">PostgreSQL — Transaction Isolation</span>
+          <span class="res-desc">All 4 isolation levels: dirty reads, phantom reads, non-repeatable reads — precisely defined.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">official</span><span class="pill">interview-key</span></div>
+        </a>
+        <a href="https://medium.com/@ronakdev0/two-phase-commit-2pc-in-distributed-databases-explained-1fcac8d25da6" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Two-Phase Commit (2PC) Explained</span>
+          <span class="res-desc">2PC prepare → commit, coordinator failure, why 2PC is blocking — motivating Saga.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span></div>
+        </a>
+        <a href="https://microservices.io/patterns/data/saga.html" target="_blank" rel="noopener noreferrer" class="res-card">
+          <span class="res-type">Article</span>
+          <span class="res-name">Pattern: Saga</span>
+          <span class="res-desc">Saga pattern as 2PC alternative. Choreography vs orchestration, compensating transactions.</span>
+          <div class="res-tags" style="display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;"><span class="pill">article</span><span class="pill">must-read</span></div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <span class="nav-logo">prep<span class="logo-accent">.</span>dev</span>
+      <p>Built and maintained by <strong>Nilesh Khimani</strong> — a pattern-first SDE-2 interview prep reference covering DSA patterns, company-specific problem sets, Java + Spring Boot depth, and a structured execution plan. Spot something worth fixing or a resource worth adding? Reach out below.</p>
+    </div>
+    <div class="footer-contact">
+      <span class="footer-heading">Contact</span>
+      <a href="mailto:nileshkhimani5040@gmail.com">nileshkhimani5040@gmail.com</a>
+      <a href="https://www.linkedin.com/in/nileshkhimani1/" target="_blank">LinkedIn →</a>
+      <a href="https://github.com/NileshKhimani1" target="_blank">GitHub →</a>
+      <a href="https://nileshkhimani.bio.link/" target="_blank">All my links (bio.link) →</a>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>Built for SDE-2 prep at Amazon · Uber · Apple · Google · Meta · Microsoft</p>
+    <p class="footer-sub">Pattern-first DSA · Java concurrency depth · Spring Boot resilience · 8-week execution plan</p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
